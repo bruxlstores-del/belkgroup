@@ -775,7 +775,8 @@ const Home = () => {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 z-50 hover:scale-110"
+          className="fixed bottom-8 right-8 bg-gradient-to-br from-blue-600 to-blue-700 text-white p-4 rounded-full shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 z-50 hover:scale-125 animate-bounce"
+          style={{ animation: 'pulse-glow 2s infinite' }}
         >
           <ArrowUp className="w-6 h-6" />
         </button>
