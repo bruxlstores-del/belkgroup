@@ -293,16 +293,23 @@ const Home = () => {
         
         <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
           <div className="mb-8 animate-fade-in">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/18ulrhhq_119679941_120260503151314_3370746681324528639_n.jpg"
-              alt="BelkGroup"
-              className="h-32 w-auto mx-auto mb-4 drop-shadow-2xl"
-            />
+            <div className="inline-block relative">
+              {/* Glowing background effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 rounded-full blur-3xl opacity-50 animate-pulse"></div>
+              {/* Logo container with border */}
+              <div className="relative bg-white/10 backdrop-blur-md rounded-2xl p-6 border-2 border-white/30 shadow-2xl">
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/3p5jqlgb_119679941_120260503151314_3370746681324528639_n.jpg"
+                  alt="BelkGroup"
+                  className="h-28 w-auto mx-auto drop-shadow-2xl"
+                />
+              </div>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in drop-shadow-lg">
             Expert Belge en débarras et tri
           </h1>
-          <p className="text-xl md:text-2xl mb-8 animate-fade-in-delay">
+          <p className="text-xl md:text-2xl mb-8 animate-fade-in-delay drop-shadow-md">
             Au service des particuliers et des professionnels !
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-2">
