@@ -331,20 +331,35 @@ const Home = () => {
       </section>
 
       {/* Values Section */}
-      <section id="nos-valeurs" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section id="nos-valeurs" className="py-20 bg-gradient-to-b from-gray-50 to-white relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Nos Valeurs</h2>
+            <h2 
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+              style={{
+                transform: scrollY > 500 ? 'translateY(0)' : 'translateY(50px)',
+                opacity: scrollY > 500 ? 1 : 0,
+                transition: 'all 0.8s ease-out'
+              }}
+            >
+              Nos Valeurs
+            </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, idx) => (
               <Card 
                 key={idx} 
-                className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-blue-500"
+                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-t-4 border-blue-500 relative overflow-hidden"
+                style={{
+                  transform: scrollY > 500 ? 'translateY(0)' : 'translateY(80px)',
+                  opacity: scrollY > 500 ? 1 : 0,
+                  transition: `all 0.8s ease-out ${idx * 0.1}s`
+                }}
               >
-                <CardContent className="p-6 text-center">
-                  <div className="text-blue-600 mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <CardContent className="p-6 text-center relative z-10">
+                  <div className="text-blue-600 mb-4 flex justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                     {value.icon}
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
