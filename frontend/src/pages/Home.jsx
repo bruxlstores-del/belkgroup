@@ -482,10 +482,19 @@ const Home = () => {
       </section>
 
       {/* Gallery Section */}
-      <section id="réalisations" className="py-20 bg-white">
+      <section id="réalisations" className="py-20 bg-white relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Nos Réalisations</h2>
+            <h2 
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+              style={{
+                transform: scrollY > 2800 ? 'translateY(0)' : 'translateY(50px)',
+                opacity: scrollY > 2800 ? 1 : 0,
+                transition: 'all 0.8s ease-out'
+              }}
+            >
+              Nos Réalisations
+            </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-8"></div>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               {['all', 'before-after', 'clearance', 'cleaning'].map((filter) => (
@@ -493,7 +502,11 @@ const Home = () => {
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
                   variant={activeFilter === filter ? 'default' : 'outline'}
-                  className={activeFilter === filter ? 'bg-blue-600 hover:bg-blue-700' : ''}
+                  className={`transition-all duration-300 ${
+                    activeFilter === filter 
+                      ? 'bg-blue-600 hover:bg-blue-700 scale-110' 
+                      : 'hover:scale-105'
+                  }`}
                 >
                   {filter === 'all' ? 'Tout voir' : 
                    filter === 'before-after' ? 'Avant/Après' :
@@ -506,18 +519,26 @@ const Home = () => {
             {filteredGallery.map((img, idx) => (
               <div 
                 key={idx} 
-                className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 h-64"
+                className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 h-64 transform hover:scale-105"
+                style={{
+                  transform: scrollY > 2900 ? 'translateY(0) rotate(0deg)' : 'translateY(60px) rotate(-2deg)',
+                  opacity: scrollY > 2900 ? 1 : 0,
+                  transition: `all 0.6s ease-out ${idx * 0.1}s`
+                }}
               >
                 <img 
                   src={img.url} 
                   alt={`Gallery ${idx + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <p className="text-white font-semibold">
-                    {img.category === 'before-after' ? 'Avant/Après' :
-                     img.category === 'clearance' ? 'Débarras de maison' : 'Service de nettoyage'}
-                  </p>
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-6">
+                  <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                    <p className="text-white font-bold text-lg mb-2">
+                      {img.category === 'before-after' ? 'Avant/Après' :
+                       img.category === 'clearance' ? 'Débarras de maison' : 'Service de nettoyage'}
+                    </p>
+                    <p className="text-blue-200 text-sm">Travail professionnel et soigné</p>
+                  </div>
                 </div>
               </div>
             ))}
