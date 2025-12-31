@@ -372,10 +372,16 @@ const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
+            <div
+              style={{
+                transform: scrollY > 1000 ? 'translateX(0)' : 'translateX(-100px)',
+                opacity: scrollY > 1000 ? 1 : 0,
+                transition: 'all 0.8s ease-out'
+              }}
+            >
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
                 BELKGROUP
               </h2>
@@ -392,27 +398,34 @@ const Home = () => {
                 faites confiance à notre expertise.
               </p>
               <div className="flex flex-wrap gap-4">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
+                <div className="flex items-center space-x-2 group">
+                  <CheckCircle className="w-5 h-5 text-green-600 group-hover:scale-125 transition-transform" />
                   <span className="text-gray-700">10 ans d'expérience</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
+                <div className="flex items-center space-x-2 group">
+                  <CheckCircle className="w-5 h-5 text-green-600 group-hover:scale-125 transition-transform" />
                   <span className="text-gray-700">Disponible 7j/7</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-600" />
+                <div className="flex items-center space-x-2 group">
+                  <CheckCircle className="w-5 h-5 text-green-600 group-hover:scale-125 transition-transform" />
                   <span className="text-gray-700">Réponse sous 24h</span>
                 </div>
               </div>
             </div>
-            <div className="relative">
+            <div 
+              className="relative"
+              style={{
+                transform: scrollY > 1000 ? 'translateX(0) scale(1)' : 'translateX(100px) scale(0.9)',
+                opacity: scrollY > 1000 ? 1 : 0,
+                transition: 'all 0.8s ease-out'
+              }}
+            >
               <img 
                 src="https://images.unsplash.com/photo-1562240020-ce31ccb0fa7d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwzfHxkZWNsdXR0ZXJpbmd8ZW58MHx8fHwxNzY3MjIzODg4fDA&ixlib=rb-4.1.0&q=85"
                 alt="Clearing service"
-                className="rounded-lg shadow-2xl"
+                className="rounded-lg shadow-2xl hover:shadow-blue-300 transition-shadow duration-500"
               />
-              <div className="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-lg shadow-xl">
+              <div className="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-lg shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer">
                 <p className="text-4xl font-bold">10+</p>
                 <p className="text-sm">Années d'expérience</p>
               </div>
