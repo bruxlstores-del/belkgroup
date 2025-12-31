@@ -145,20 +145,98 @@ const Home = () => {
   const filteredGallery = activeFilter === 'all' ? galleryImages : galleryImages.filter(img => img.category === activeFilter);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative overflow-hidden">
+      {/* Animated Background Waves */}
+      <div className="fixed inset-0 pointer-events-none z-0 opacity-30">
+        <svg className="absolute top-0 left-0 w-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <path 
+            fill="url(#gradient1)" 
+            fillOpacity="1" 
+            d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,181.3C672,192,768,160,864,149.3C960,139,1056,149,1152,138.7C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+            style={{ 
+              transform: `translateY(${scrollY * 0.2}px)`,
+              transition: 'transform 0.1s ease-out'
+            }}
+          >
+            <animate attributeName="d" dur="10s" repeatCount="indefinite" values="
+              M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,181.3C672,192,768,160,864,149.3C960,139,1056,149,1152,138.7C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+              M0,128L48,149.3C96,171,192,213,288,208C384,203,480,149,576,128C672,107,768,117,864,138.7C960,160,1056,192,1152,186.7C1248,181,1344,139,1392,117.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z;
+              M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,181.3C672,192,768,160,864,149.3C960,139,1056,149,1152,138.7C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z
+            " />
+          </path>
+          <defs>
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style={{ stopColor: '#3b82f6', stopOpacity: 0.4 }} />
+              <stop offset="50%" style={{ stopColor: '#60a5fa', stopOpacity: 0.3 }} />
+              <stop offset="100%" style={{ stopColor: '#3b82f6', stopOpacity: 0.4 }} />
+            </linearGradient>
+          </defs>
+        </svg>
+        <svg className="absolute bottom-0 left-0 w-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
+          <path 
+            fill="url(#gradient2)" 
+            fillOpacity="1" 
+            d="M0,128L48,138.7C96,149,192,171,288,165.3C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            style={{ 
+              transform: `translateY(${-scrollY * 0.15}px)`,
+              transition: 'transform 0.1s ease-out'
+            }}
+          >
+            <animate attributeName="d" dur="12s" repeatCount="indefinite" values="
+              M0,128L48,138.7C96,149,192,171,288,165.3C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z;
+              M0,160L48,170.7C96,181,192,203,288,197.3C384,192,480,160,576,138.7C672,117,768,107,864,128C960,149,1056,203,1152,208C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z;
+              M0,128L48,138.7C96,149,192,171,288,165.3C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z
+            " />
+          </path>
+          <defs>
+            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style={{ stopColor: '#1e40af', stopOpacity: 0.5 }} />
+              <stop offset="50%" style={{ stopColor: '#3b82f6', stopOpacity: 0.4 }} />
+              <stop offset="100%" style={{ stopColor: '#1e40af', stopOpacity: 0.5 }} />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      {/* Floating particles */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-blue-400 rounded-full opacity-20"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animation: `float ${5 + Math.random() * 10}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 5}s`
+            }}
+          />
+        ))}
+      </div>
+
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrollY > 50 ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-2">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
-                <Sparkles className="w-6 h-6 text-white" />
+            <div className="flex items-center space-x-3">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/18ulrhhq_119679941_120260503151314_3370746681324528639_n.jpg"
+                alt="BelkGroup Logo"
+                className="h-16 w-auto object-contain"
+              />
+              <div>
+                <span className={`text-2xl font-bold block ${
+                  scrollY > 50 ? 'text-blue-900' : 'text-white'
+                }`}>
+                  <span className="text-blue-600">Belk</span>
+                  <span className={scrollY > 50 ? 'text-blue-900' : 'text-white'}>Group</span>
+                </span>
+                <span className={`text-xs ${
+                  scrollY > 50 ? 'text-blue-600' : 'text-blue-200'
+                }`}>Cleaning Service</span>
               </div>
-              <span className={`text-2xl font-bold ${
-                scrollY > 50 ? 'text-blue-900' : 'text-white'
-              }`}>BELKGROUP</span>
             </div>
             <div className="hidden md:flex space-x-8">
               {['Nos valeurs', 'Services', 'Réalisations', 'Avis', 'Contact'].map((item, idx) => (
