@@ -596,14 +596,29 @@ const Home = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white">
+      <section id="contact" className="py-20 bg-white relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Contactez-nous</h2>
+            <h2 
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+              style={{
+                transform: scrollY > 4200 ? 'translateY(0)' : 'translateY(50px)',
+                opacity: scrollY > 4200 ? 1 : 0,
+                transition: 'all 0.8s ease-out'
+              }}
+            >
+              Contactez-nous
+            </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto"></div>
           </div>
           <div className="grid md:grid-cols-2 gap-12">
-            <div>
+            <div
+              style={{
+                transform: scrollY > 4300 ? 'translateX(0)' : 'translateX(-80px)',
+                opacity: scrollY > 4300 ? 1 : 0,
+                transition: 'all 0.8s ease-out'
+              }}
+            >
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Envoyez-nous un message</h3>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <Input
@@ -611,6 +626,7 @@ const Home = () => {
                   placeholder="Votre nom"
                   value={formData.name}
                   onChange={handleInputChange}
+                  className="transition-all duration-300 focus:scale-105 focus:shadow-lg"
                   required
                 />
                 <Input
@@ -619,6 +635,7 @@ const Home = () => {
                   placeholder="Votre email"
                   value={formData.email}
                   onChange={handleInputChange}
+                  className="transition-all duration-300 focus:scale-105 focus:shadow-lg"
                   required
                 />
                 <Input
@@ -626,18 +643,21 @@ const Home = () => {
                   placeholder="Votre numéro de téléphone"
                   value={formData.phone}
                   onChange={handleInputChange}
+                  className="transition-all duration-300 focus:scale-105 focus:shadow-lg"
                 />
                 <Input
                   name="postalCode"
                   placeholder="Votre code postal"
                   value={formData.postalCode}
                   onChange={handleInputChange}
+                  className="transition-all duration-300 focus:scale-105 focus:shadow-lg"
                 />
                 <Input
                   name="subject"
                   placeholder="Sujet"
                   value={formData.subject}
                   onChange={handleInputChange}
+                  className="transition-all duration-300 focus:scale-105 focus:shadow-lg"
                   required
                 />
                 <Textarea
@@ -646,14 +666,25 @@ const Home = () => {
                   rows={6}
                   value={formData.message}
                   onChange={handleInputChange}
+                  className="transition-all duration-300 focus:scale-105 focus:shadow-lg"
                   required
                 />
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-lg py-6">
+                <Button 
+                  type="submit" 
+                  className="w-full bg-blue-600 hover:bg-blue-700 hover:scale-105 text-lg py-6 transition-all duration-300"
+                >
                   Envoyer le message
                 </Button>
               </form>
             </div>
-            <div className="space-y-6">
+            <div 
+              className="space-y-6"
+              style={{
+                transform: scrollY > 4300 ? 'translateX(0)' : 'translateX(80px)',
+                opacity: scrollY > 4300 ? 1 : 0,
+                transition: 'all 0.8s ease-out 0.2s'
+              }}
+            >
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Nos coordonnées</h3>
               <Card className="border-l-4 border-blue-600">
                 <CardContent className="p-6 space-y-4">
