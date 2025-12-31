@@ -742,16 +742,26 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-12 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">BELKGROUP</h3>
+              <div className="flex items-center space-x-3 mb-4">
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/3p5jqlgb_119679941_120260503151314_3370746681324528639_n.jpg"
+                  alt="BelkGroup Logo"
+                  className="h-12 w-auto object-contain brightness-0 invert"
+                />
+                <div>
+                  <h3 className="text-xl font-bold">BELKGROUP</h3>
+                  <p className="text-xs text-blue-400">Cleaning Service</p>
+                </div>
+              </div>
               <p className="text-gray-400 mb-4">
                 Expert belge en débarras et tri pour particuliers et professionnels.
               </p>
               <div className="flex space-x-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors cursor-pointer">
+                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-all duration-300 cursor-pointer hover:scale-110">
                   <span className="text-xl">f</span>
                 </div>
               </div>
