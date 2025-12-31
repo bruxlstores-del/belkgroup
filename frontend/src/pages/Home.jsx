@@ -547,22 +547,43 @@ const Home = () => {
       </section>
 
       {/* Reviews Section */}
-      <section id="avis" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section id="avis" className="py-20 bg-gradient-to-b from-gray-50 to-white relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Avis Clients</h2>
+            <h2 
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+              style={{
+                transform: scrollY > 3500 ? 'translateY(0)' : 'translateY(50px)',
+                opacity: scrollY > 3500 ? 1 : 0,
+                transition: 'all 0.8s ease-out'
+              }}
+            >
+              Avis Clients
+            </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {reviews.map((review, idx) => (
-              <Card key={idx} className="hover:shadow-xl transition-shadow duration-300">
+              <Card 
+                key={idx} 
+                className="hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 hover:rotate-1"
+                style={{
+                  transform: scrollY > 3600 ? 'translateY(0)' : 'translateY(60px)',
+                  opacity: scrollY > 3600 ? 1 : 0,
+                  transition: `all 0.7s ease-out ${idx * 0.1}s`
+                }}
+              >
                 <CardContent className="p-6">
                   <div className="flex mb-3">
                     {[...Array(review.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                      <Star 
+                        key={i} 
+                        className="w-5 h-5 fill-yellow-400 text-yellow-400 animate-pulse" 
+                        style={{ animationDelay: `${i * 0.1}s` }}
+                      />
                     ))}
                   </div>
-                  <p className="text-gray-600 mb-4 text-sm">{review.text}</p>
+                  <p className="text-gray-600 mb-4 text-sm italic">&quot;{review.text}&quot;</p>
                   <div className="border-t pt-4">
                     <p className="font-semibold text-gray-900">{review.name}</p>
                     <p className="text-sm text-gray-500">{review.date}</p>
