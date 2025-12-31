@@ -435,28 +435,44 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section id="services" className="py-20 bg-gradient-to-b from-gray-50 to-white relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Nos Services</h2>
+            <h2 
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+              style={{
+                transform: scrollY > 1600 ? 'translateY(0)' : 'translateY(50px)',
+                opacity: scrollY > 1600 ? 1 : 0,
+                transition: 'all 0.8s ease-out'
+              }}
+            >
+              Nos Services
+            </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, idx) => (
               <Card 
                 key={idx} 
-                className="group overflow-hidden hover:shadow-2xl transition-all duration-300"
+                className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                style={{
+                  transform: scrollY > 1700 ? 'translateY(0)' : 'translateY(80px)',
+                  opacity: scrollY > 1700 ? 1 : 0,
+                  transition: `all 0.8s ease-out ${idx * 0.15}s`
+                }}
               >
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src={service.image} 
                     alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-blue-900/80 transition-colors duration-500"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:scale-105 transition-transform duration-300">{service.title}</h3>
+                  </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{service.title}</h3>
                   <p className="text-gray-600">{service.description}</p>
                 </CardContent>
               </Card>
