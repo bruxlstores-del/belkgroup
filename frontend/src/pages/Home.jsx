@@ -409,7 +409,7 @@ const Home = () => {
                 alt="Clearing service"
                 className="rounded-lg shadow-2xl hover:shadow-blue-300 transition-shadow duration-500"
               />
-              <div className="absolute -bottom-6 -left-6 bg-blue-600 text-white p-6 rounded-lg shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer">
+              <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-cyan-500 to-blue-900 text-white p-6 rounded-lg shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer">
                 <p className="text-4xl font-bold">10+</p>
                 <p className="text-sm">Années d'expérience</p>
               </div>
