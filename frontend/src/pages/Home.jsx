@@ -602,34 +602,48 @@ const Home = () => {
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredGallery.map((img, idx) => (
-              <div 
-                key={idx} 
-                className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 h-64 transform hover:scale-105"
-                style={{
-                  transform: scrollY > 2900 ? 'translateY(0) rotate(0deg)' : 'translateY(60px) rotate(-2deg)',
-                  opacity: scrollY > 2900 ? 1 : 0,
-                  transition: `all 0.6s ease-out ${idx * 0.1}s`
-                }}
-              >
-                <img 
-                  src={img.url} 
-                  alt={`Gallery ${idx + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-6">
-                  <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                    <p className="text-white font-bold text-lg mb-2">
-                      {img.category === 'before-after' ? 'Avant/Après' :
-                       img.category === 'clearance' ? 'Débarras professionnel' : 'Vide maison complet'}
-                    </p>
-                    <p className="text-blue-200 text-sm">
-                      {img.title || 'Vide maison et évacuation d\'encombrants'}
-                    </p>
+            {loading ? (
+              // Loading skeleton
+              [...Array(6)].map((_, idx) => (
+                <div key={idx} className="h-64 bg-gray-200 rounded-lg animate-pulse"></div>
+              ))
+            ) : filteredGallery.length === 0 ? (
+              <div className="col-span-full text-center py-12">
+                <p className="text-gray-500">Aucune réalisation dans cette catégorie</p>
+              </div>
+            ) : (
+              filteredGallery.map((img, idx) => (
+                <div 
+                  key={idx} 
+                  className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 h-64 transform hover:scale-105"
+                  style={{
+                    transform: scrollY > 2900 ? 'translateY(0) rotate(0deg)' : 'translateY(60px) rotate(-2deg)',
+                    opacity: scrollY > 2900 ? 1 : 0,
+                    transition: `all 0.6s ease-out ${idx * 0.1}s`
+                  }}
+                >
+                  <img 
+                    src={img.url || img.image || img.image_after || img.image_before} 
+                    alt={img.title || `Gallery ${idx + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
+                    onError={(e) => {
+                      e.target.src = 'https://via.placeholder.com/400x300?text=Image+non+disponible';
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-6">
+                    <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                      <p className="text-white font-bold text-lg mb-2">
+                        {img.category === 'before-after' ? 'Avant/Après' :
+                         img.category === 'clearance' ? 'Débarras professionnel' : 'Vide maison complet'}
+                      </p>
+                      <p className="text-blue-200 text-sm">
+                        {img.title || 'Vide maison et évacuation d\'encombrants'}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </section>
