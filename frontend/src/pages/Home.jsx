@@ -722,20 +722,16 @@ const Home = () => {
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/3p5jqlgb_119679941_120260503151314_3370746681324528639_n.jpg"
+                  src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/5kqhc8io_Design%20sans%20titre.png"
                   alt="BelkGroup Logo"
-                  className="h-12 w-auto object-contain brightness-0 invert"
+                  className="h-16 w-auto object-contain"
                 />
-                <div>
-                  <h3 className="text-xl font-bold">BELKGROUP</h3>
-                  <p className="text-xs text-blue-400">Cleaning Service</p>
-                </div>
               </div>
               <p className="text-gray-400 mb-4">
                 Expert belge en débarras et tri pour particuliers et professionnels.
               </p>
               <div className="flex space-x-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-all duration-300 cursor-pointer hover:scale-110">
+                <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-900 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer">
                   <span className="text-xl">f</span>
                 </div>
               </div>
