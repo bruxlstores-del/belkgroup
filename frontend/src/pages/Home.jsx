@@ -85,24 +85,24 @@ const Home = () => {
 
   const services = [
     {
-      image: "https://images.unsplash.com/photo-1690211506506-57486e819dda?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHx3YXN0ZSUyMHJlbW92YWx8ZW58MHx8fHwxNzY3MjIzODY3fDA&ixlib=rb-4.1.0&q=85",
-      title: "Enlèvement d'encombrants et déchets",
-      description: "Besoin d'aide pour vous débarrasser d'encombrants (meubles, matelas, sommiers, gravats, électroménagers, etc.), de déchets verts ou de débris de construction ? BELKGROUP a la solution !"
+      image: "https://images.unsplash.com/photo-1681731059898-72407df8431a",
+      title: "Débarras d'encombrants",
+      description: "Nous enlevons rapidement tous vos objets encombrants : meubles, électroménagers, matelas, cartons. Service complet avec tri et évacuation professionnelle."
     },
     {
-      image: "https://images.unsplash.com/photo-1686178827149-6d55c72d81df?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2MzR8MHwxfHNlYXJjaHwxfHxob21lJTIwY2xlYW5pbmd8ZW58MHx8fHwxNzY3MjIzODcyfDA&ixlib=rb-4.1.0&q=85",
-      title: "Débarras de maison",
-      description: "Trouver des personnes de confiance pour effectuer des tâches dans votre propriété peut être difficile. C'est pourquoi nous fournissons une équipe qualifiée et expérimentée."
+      image: "https://images.unsplash.com/photo-1671351967814-834d376fcd1d",
+      title: "Vide maison complet",
+      description: "Succession, déménagement ou rénovation ? Nous vidons entièrement votre maison ou appartement avec soin et efficacité. Prise en charge totale de A à Z."
     },
     {
-      image: "https://images.unsplash.com/photo-1647381518264-97ff1835026f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2MzR8MHwxfHNlYXJjaHwyfHxob21lJTIwY2xlYW5pbmd8ZW58MHx8fHwxNzY3MjIzODcyfDA&ixlib=rb-4.1.0&q=85",
-      title: "Service de nettoyage",
-      description: "Nous proposons des services de nettoyage pour professionnels et particuliers : rénovation complète, déménagement, récupération après sinistre ou grand nettoyage de printemps."
+      image: "https://images.unsplash.com/photo-1709831917664-804b57448953",
+      title: "Vide cave et grenier",
+      description: "Libérez vos caves, greniers et garages encombrés. Notre équipe accède aux espaces difficiles et évacue tous vos encombrants en toute sécurité."
     },
     {
-      image: "https://images.unsplash.com/photo-1567113463300-102a7eb3cb26?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxkZWNsdXR0ZXJpbmd8ZW58MHx8fHwxNzY3MjIzODg4fDA&ixlib=rb-4.1.0&q=85",
-      title: "Service de monte-charge inclus",
-      description: "Dans le cadre d'un débarras d'appartement en étage, notre service inclut un service de monte-charge pour faciliter l'évacuation des encombrants."
+      image: "https://images.unsplash.com/photo-1581573833610-487d80de9aab",
+      title: "Débarras de bureau",
+      description: "Fermeture, déménagement ou réorganisation de bureaux ? Nous nous occupons du débarras professionnel de vos locaux commerciaux et administratifs."
     }
   ];
 
