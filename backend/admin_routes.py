@@ -112,7 +112,7 @@ async def delete_service(service_id: str, authorization: Optional[str] = Header(
 async def get_gallery(authorization: Optional[str] = Header(None)):
     """Get all gallery items"""
     await verify_admin_token(authorization)
-    items = await db.gallery.find().sort("created_at", -1).to_list(100)
+    items = await db.gallery.find({}, {'_id': 0}).sort("created_at", -1).to_list(100)
     return [GalleryItem(**item) for item in items]
 
 @router.post("/gallery", response_model=GalleryItem)
