@@ -281,10 +281,13 @@ const Home = () => {
         
         <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in drop-shadow-lg">
-            Expert Belge en débarras et tri
+            Spécialiste en débarras et vide maison
           </h1>
           <p className="text-xl md:text-2xl mb-8 animate-fade-in-delay drop-shadow-md">
-            Au service des particuliers et des professionnels !
+            Débarras d'encombrants • Vide maison • Caves • Bureaux
+          </p>
+          <p className="text-lg md:text-xl mb-8 animate-fade-in-delay opacity-90">
+            Pour particuliers et professionnels - Service rapide et professionnel
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delay-2">
             <Button 
