@@ -673,21 +673,21 @@ const Home = () => {
               <Card className="border-l-4 border-blue-600">
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-start space-x-3">
-                    <MapPin className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                    <MapPin className="w-6 h-6 text-cyan-600 flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-gray-900">Adresse</p>
                       <p className="text-gray-600">Rue Royal 11, 1000 Bruxelles, Belgique</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <Phone className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                    <Phone className="w-6 h-6 text-cyan-600 flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-gray-900">Téléphone</p>
                       <p className="text-gray-600">+32(0)493 38 11 89</p>
                     </div>
                   </div>
                   <div className="flex items-start space-x-3">
-                    <Mail className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                    <Mail className="w-6 h-6 text-cyan-600 flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-semibold text-gray-900">Email</p>
                       <p className="text-gray-600">belkgroupe@gmail.com</p>
