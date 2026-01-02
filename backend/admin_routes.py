@@ -9,6 +9,7 @@ from auth import verify_token, create_access_token, verify_password, hash_passwo
 from datetime import datetime
 import base64
 import uuid
+import os
 
 router = APIRouter(prefix="/api/admin", tags=["admin"])
 
@@ -19,9 +20,9 @@ def set_db(database):
     global db
     db = database
 
-# Admin credentials
-ADMIN_EMAIL = "bruxlstores@gmail.com"
-ADMIN_PASSWORD_HASH = hash_password("SerrarMohamed73@")
+# Admin credentials from environment
+ADMIN_EMAIL = os.environ['ADMIN_EMAIL']
+ADMIN_PASSWORD_HASH = hash_password(os.environ['ADMIN_PASSWORD'])
 
 async def verify_admin_token(authorization: Optional[str] = Header(None)):
     """Verify admin token from Authorization header"""
