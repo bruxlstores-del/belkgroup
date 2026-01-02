@@ -497,6 +497,77 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Before/After Section */}
+      <section className="py-20 bg-white relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 
+              className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+              style={{
+                transform: scrollY > 2400 ? 'translateY(0)' : 'translateY(50px)',
+                opacity: scrollY > 2400 ? 1 : 0,
+                transition: 'all 0.8s ease-out'
+              }}
+            >
+              Nos Chantiers Avant/Après
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-900 mx-auto mb-4"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Découvrez la transformation spectaculaire de nos chantiers de débarras
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {beforeAfterProjects.map((project, idx) => (
+              <div 
+                key={idx}
+                className="group"
+                style={{
+                  transform: scrollY > 2500 ? 'translateY(0)' : 'translateY(80px)',
+                  opacity: scrollY > 2500 ? 1 : 0,
+                  transition: `all 0.8s ease-out ${idx * 0.15}s`
+                }}
+              >
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500">
+                  <div className="relative">
+                    <div className="grid grid-cols-2 gap-0">
+                      {/* AVANT */}
+                      <div className="relative h-64 overflow-hidden border-r-2 border-gray-200">
+                        <div className="absolute top-2 left-2 z-10 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                          AVANT
+                        </div>
+                        <img 
+                          src={project.before} 
+                          alt="Avant débarras"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                      </div>
+                      
+                      {/* APRÈS */}
+                      <div className="relative h-64 overflow-hidden">
+                        <div className="absolute top-2 right-2 z-10 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                          APRÈS
+                        </div>
+                        <img 
+                          src={project.after} 
+                          alt="Après débarras"
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
+                    <p className="text-gray-600">{project.description}</p>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Gallery Section */}
       <section id="réalisations" className="py-20 bg-white relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
