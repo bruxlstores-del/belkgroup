@@ -5,6 +5,10 @@ import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Phone, Mail, MapPin, Star, CheckCircle, Recycle, Clock, Award, ArrowRight, Trash2, Home as HomeIcon, Sparkles, ArrowUp } from 'lucide-react';
 import { toast } from '../hooks/use-toast';
+import axios from 'axios';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const Home = () => {
   const [formData, setFormData] = useState({
