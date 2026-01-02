@@ -148,6 +148,20 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
+      {/* Professional Background Image */}
+      <div 
+        className="fixed inset-0 z-0 opacity-[0.03]"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1581573833610-487d80de9aab)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+      
+      {/* Gradient Overlay */}
+      <div className="fixed inset-0 z-0 bg-gradient-to-b from-white via-transparent to-white opacity-90"></div>
+      
       {/* Animated Background Waves */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-30">
         <svg className="absolute top-0 left-0 w-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
