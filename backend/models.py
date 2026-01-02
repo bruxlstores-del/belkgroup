@@ -34,7 +34,7 @@ class GalleryItem(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     title: str
     description: str
-    category: str  # 'before-after', 'clearance', 'cleaning'
+    category: str  # 'before-after', 'clearance', 'vide-maison'
     image_before: Optional[str] = None
     image_after: Optional[str] = None
     image: Optional[str] = None
