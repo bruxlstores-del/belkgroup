@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from typing import Optional
 import os
 
-SECRET_KEY = os.environ.get('JWT_SECRET_KEY', 'belkgroup-secret-key-2025-super-secure')
+SECRET_KEY = os.environ['JWT_SECRET_KEY']
 ALGORITHM = 'HS256'
 ACCESS_TOKEN_EXPIRE_MINUTES = 1440  # 24 hours
 
