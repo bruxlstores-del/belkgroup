@@ -764,43 +764,73 @@ const Home = () => {
               }}
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Nos coordonnées</h3>
-              <Card className="border-l-4 border-blue-600">
-                <CardContent className="p-6 space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <MapPin className="w-6 h-6 text-cyan-600 flex-shrink-0 mt-1" />
+              
+              {/* Contact Info Cards */}
+              <Card className="border-0 bg-white/80 backdrop-blur-xl shadow-xl hover:shadow-2xl hover:shadow-cyan-500/10 transition-all duration-500 mb-6 group overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full filter blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <CardContent className="p-6 space-y-5 relative z-10">
+                  <div className="flex items-start space-x-4 group/item hover:translate-x-2 transition-transform duration-300">
+                    <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <MapPin className="w-7 h-7 text-white" />
+                    </div>
                     <div>
-                      <p className="font-semibold text-gray-900">Adresse</p>
-                      <p className="text-gray-600">Rue Royal 11, 1000 Bruxelles, Belgique</p>
+                      <p className="font-bold text-gray-900 mb-1 text-lg">Adresse</p>
+                      <p className="text-gray-600 leading-relaxed">Rue Royal 11<br />1000 Bruxelles, Belgique</p>
                     </div>
                   </div>
-                  <div className="flex items-start space-x-3">
-                    <Phone className="w-6 h-6 text-cyan-600 flex-shrink-0 mt-1" />
+                  
+                  <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+                  
+                  <div className="flex items-start space-x-4 group/item hover:translate-x-2 transition-transform duration-300">
+                    <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <Phone className="w-7 h-7 text-white" />
+                    </div>
                     <div>
-                      <p className="font-semibold text-gray-900">Téléphone</p>
-                      <p className="text-gray-600">+32(0)493 38 11 89</p>
+                      <p className="font-bold text-gray-900 mb-1 text-lg">Téléphone</p>
+                      <a href="tel:+32493381189" className="text-cyan-600 hover:text-cyan-700 font-semibold text-lg">
+                        +32(0)493 38 11 89
+                      </a>
                     </div>
                   </div>
-                  <div className="flex items-start space-x-3">
-                    <Mail className="w-6 h-6 text-cyan-600 flex-shrink-0 mt-1" />
+                  
+                  <div className="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+                  
+                  <div className="flex items-start space-x-4 group/item hover:translate-x-2 transition-transform duration-300">
+                    <div className="w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                      <Mail className="w-7 h-7 text-white" />
+                    </div>
                     <div>
-                      <p className="font-semibold text-gray-900">Email</p>
-                      <p className="text-gray-600">belkgroupe@gmail.com</p>
+                      <p className="font-bold text-gray-900 mb-1 text-lg">Email</p>
+                      <a href="mailto:belkgroupe@gmail.com" className="text-cyan-600 hover:text-cyan-700 font-semibold">
+                        belkgroupe@gmail.com
+                      </a>
                     </div>
                   </div>
                 </CardContent>
               </Card>
-              <Card className="bg-gradient-to-br from-cyan-500 to-blue-900 text-white">
-                <CardContent className="p-6">
-                  <h4 className="text-xl font-bold mb-4">Horaires d'ouverture</h4>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span>Lundi - Samedi</span>
-                      <span className="font-semibold">08:00 – 20:00</span>
+              
+              {/* Hours Card */}
+              <Card className="border-0 bg-gradient-to-br from-cyan-500 via-cyan-600 to-blue-700 text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 overflow-hidden relative">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full filter blur-3xl"></div>
+                <CardContent className="p-8 relative z-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Clock className="w-8 h-8" />
+                    <h4 className="text-2xl font-bold">Horaires d'ouverture</h4>
+                  </div>
+                  <div className="space-y-3 text-base">
+                    <div className="flex justify-between items-center bg-white/10 backdrop-blur-sm rounded-xl p-3">
+                      <span className="font-medium">Lundi - Samedi</span>
+                      <span className="font-bold">08:00 – 20:00</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span>Dimanche</span>
-                      <span className="font-semibold">08:00 – 18:00</span>
+                    <div className="flex justify-between items-center bg-white/10 backdrop-blur-sm rounded-xl p-3">
+                      <span className="font-medium">Dimanche</span>
+                      <span className="font-bold">08:00 – 18:00</span>
                     </div>
+                  </div>
+                  <div className="mt-6 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+                    <p className="text-sm font-semibold text-center">
+                      ⚡ Réponse sous 24h garantie
+                    </p>
                   </div>
                 </CardContent>
               </Card>
