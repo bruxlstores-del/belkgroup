@@ -604,93 +604,163 @@ const Home = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+      <section id="contact" className="py-20 bg-gradient-to-b from-white to-gray-50 relative z-10 overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 -left-20 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+          <div className="absolute top-40 -right-20 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+          <div className="absolute -bottom-20 left-1/2 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
             <h2 
-              className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+              className="text-5xl md:text-6xl font-bold text-gray-900 mb-4"
               style={{
                 transform: scrollY > 4200 ? 'translateY(0)' : 'translateY(50px)',
                 opacity: scrollY > 4200 ? 1 : 0,
                 transition: 'all 0.8s ease-out'
               }}
             >
-              Contactez-nous
+              Demandez votre devis gratuit
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-900 mx-auto"></div>
+            <div className="w-32 h-1.5 bg-gradient-to-r from-cyan-500 via-blue-600 to-cyan-500 mx-auto mb-6 rounded-full"></div>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Intervention rapide • Devis gratuit • Service professionnel
+            </p>
           </div>
+          
           <div className="grid md:grid-cols-2 gap-12">
+            {/* Contact Form - Modern Design */}
             <div
+              className="relative"
               style={{
-                transform: scrollY > 4300 ? 'translateX(0)' : 'translateX(-80px)',
+                transform: scrollY > 4300 ? 'translateX(0) scale(1)' : 'translateX(-80px) scale(0.95)',
                 opacity: scrollY > 4300 ? 1 : 0,
-                transition: 'all 0.8s ease-out'
+                transition: 'all 1s cubic-bezier(0.34, 1.56, 0.64, 1)'
               }}
             >
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Envoyez-nous un message</h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <Input
-                  name="name"
-                  placeholder="Votre nom"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="transition-all duration-300 focus:scale-105 focus:shadow-lg"
-                  required
-                />
-                <Input
-                  name="email"
-                  type="email"
-                  placeholder="Votre email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="transition-all duration-300 focus:scale-105 focus:shadow-lg"
-                  required
-                />
-                <Input
-                  name="phone"
-                  placeholder="Votre numéro de téléphone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="transition-all duration-300 focus:scale-105 focus:shadow-lg"
-                />
-                <Input
-                  name="postalCode"
-                  placeholder="Votre code postal"
-                  value={formData.postalCode}
-                  onChange={handleInputChange}
-                  className="transition-all duration-300 focus:scale-105 focus:shadow-lg"
-                />
-                <Input
-                  name="subject"
-                  placeholder="Sujet"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  className="transition-all duration-300 focus:scale-105 focus:shadow-lg"
-                  required
-                />
-                <Textarea
-                  name="message"
-                  placeholder="Votre message"
-                  rows={6}
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  className="transition-all duration-300 focus:scale-105 focus:shadow-lg"
-                  required
-                />
-                <Button 
-                  type="submit" 
-                  className="w-full bg-cyan-600 hover:bg-cyan-700 hover:scale-105 text-lg py-6 transition-all duration-300"
-                >
-                  Envoyer le message
-                </Button>
-              </form>
+              <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-200/50 p-8 hover:shadow-cyan-500/20 transition-all duration-500">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Envoyez votre demande</h3>
+                </div>
+                
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>
+                      Votre nom complet
+                    </label>
+                    <Input
+                      name="name"
+                      placeholder="Jean Dupont"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="h-12 border-2 border-gray-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 rounded-xl transition-all duration-300 bg-white/50"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>
+                        Email
+                      </label>
+                      <Input
+                        name="email"
+                        type="email"
+                        placeholder="jean@email.com"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="h-12 border-2 border-gray-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 rounded-xl transition-all duration-300 bg-white/50"
+                        required
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>
+                        Téléphone
+                      </label>
+                      <Input
+                        name="phone"
+                        placeholder="+32 4XX XX XX XX"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        className="h-12 border-2 border-gray-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 rounded-xl transition-all duration-300 bg-white/50"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>
+                      Code postal
+                    </label>
+                    <Input
+                      name="postalCode"
+                      placeholder="1000"
+                      value={formData.postalCode}
+                      onChange={handleInputChange}
+                      className="h-12 border-2 border-gray-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 rounded-xl transition-all duration-300 bg-white/50"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>
+                      Type de service
+                    </label>
+                    <Input
+                      name="subject"
+                      placeholder="Ex: Vide maison, Débarras cave..."
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      className="h-12 border-2 border-gray-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 rounded-xl transition-all duration-300 bg-white/50"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-semibold text-gray-700 flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-cyan-500 rounded-full"></div>
+                      Décrivez votre projet
+                    </label>
+                    <Textarea
+                      name="message"
+                      placeholder="Décrivez en détail votre besoin de débarras..."
+                      rows={5}
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      className="border-2 border-gray-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 rounded-xl transition-all duration-300 resize-none bg-white/50"
+                      required
+                    />
+                  </div>
+                  
+                  <Button 
+                    type="submit" 
+                    className="w-full h-14 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white text-lg font-semibold rounded-xl shadow-lg hover:shadow-cyan-500/50 hover:scale-105 transition-all duration-300 group"
+                  >
+                    <span className="flex items-center justify-center gap-2">
+                      Envoyer ma demande
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    </span>
+                  </Button>
+                </form>
+              </div>
             </div>
+            
+            {/* Contact Info - Modern Cards */}
             <div 
               className="space-y-6"
               style={{
-                transform: scrollY > 4300 ? 'translateX(0)' : 'translateX(80px)',
+                transform: scrollY > 4300 ? 'translateX(0) scale(1)' : 'translateX(80px) scale(0.95)',
                 opacity: scrollY > 4300 ? 1 : 0,
-                transition: 'all 0.8s ease-out 0.2s'
+                transition: 'all 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s'
               }}
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Nos coordonnées</h3>
