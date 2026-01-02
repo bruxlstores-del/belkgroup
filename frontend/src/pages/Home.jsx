@@ -244,7 +244,7 @@ const Home = () => {
             </div>
             <Button 
               onClick={() => scrollToSection('contact')}
-              className="bg-blue-600 hover:bg-blue-700 text-white"
+              className="bg-cyan-500 hover:bg-cyan-600 text-white"
             >
               Devis gratuit
             </Button>
