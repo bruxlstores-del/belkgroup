@@ -234,7 +234,7 @@ const Home = () => {
                 <button
                   key={idx}
                   onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
-                  className={`font-medium transition-colors hover:text-blue-600 ${
+                  className={`font-medium transition-colors hover:text-cyan-500 ${
                     scrollY > 50 ? 'text-gray-700' : 'text-white'
                   }`}
                 >
