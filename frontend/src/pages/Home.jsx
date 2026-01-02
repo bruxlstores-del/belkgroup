@@ -106,6 +106,33 @@ const Home = () => {
     }
   ];
 
+  const beforeAfterProjects = [
+    {
+      before: "https://images.unsplash.com/photo-1474666488182-66ec723476c6",
+      after: "https://images.unsplash.com/photo-1630699144919-681cf308ae82",
+      title: "Vide maison complet",
+      description: "Maison encombrée transformée en espace vide et propre"
+    },
+    {
+      before: "https://images.unsplash.com/photo-1556866149-a42ffe6478ea",
+      after: "https://images.unsplash.com/photo-1630699376059-b781970715b1",
+      title: "Débarras de bureau",
+      description: "Bureau encombré complètement vidé et nettoyé"
+    },
+    {
+      before: "https://images.unsplash.com/photo-1516775448597-64ce06b9754e",
+      after: "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg",
+      title: "Vide appartement - Cuisine",
+      description: "Cuisine encombrée remise à neuf"
+    },
+    {
+      before: "https://images.unsplash.com/photo-1611324062122-076b1076c6cc",
+      after: "https://images.unsplash.com/photo-1630699144339-420f59b4747b",
+      title: "Succession - Vide maison",
+      description: "Maison de succession entièrement vidée"
+    }
+  ];
+
   const galleryImages = [
     { url: "https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/2lafmwkg_WhatsApp%20Image%202025-12-29%20at%2023.43.52%20%281%29.jpeg", category: "before-after" },
     { url: "https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/g1qvvgcj_WhatsApp%20Image%202025-12-29%20at%2023.43.52%20%282%29.jpeg", category: "clearance" },
