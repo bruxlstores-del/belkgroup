@@ -373,16 +373,16 @@ const Home = () => {
                 BELKGROUP
               </h2>
               <h3 className="text-2xl font-semibold text-cyan-600 mb-4">
-                Votre spécialiste en débarras de maison dans votre région !
+                Votre spécialiste en débarras et vide maison dans votre région !
               </h3>
               <p className="text-gray-600 mb-4">
-                Besoin de débarrasser un grenier, une maison, un appartement ou des locaux encombrés ? 
-                BELKGROUP est là pour vous ! Numéro un dans votre région, nous garantissons un service 
-                rapide, professionnel et sur mesure.
+                Besoin de débarrasser une maison, un appartement, une cave, un grenier ou des bureaux encombrés ? 
+                BELKGROUP est votre partenaire de confiance ! Experts du débarras, nous intervenons rapidement 
+                pour vider et évacuer tous vos encombrants.
               </p>
               <p className="text-gray-600 mb-6">
-                Que ce soit pour une succession, un déménagement ou simplement pour libérer de l'espace, 
-                faites confiance à notre expertise.
+                Succession, déménagement, fermeture de bureau ou simplement besoin de libérer de l'espace ? 
+                Notre équipe professionnelle s'occupe de tout : tri, évacuation, nettoyage après débarras.
               </p>
               <div className="flex flex-wrap gap-4">
                 <div className="flex items-center space-x-2 group">
