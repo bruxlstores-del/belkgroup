@@ -111,8 +111,10 @@ const Home = () => {
     { url: "https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/g1qvvgcj_WhatsApp%20Image%202025-12-29%20at%2023.43.52%20%282%29.jpeg", category: "clearance" },
     { url: "https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/6b0kegfx_WhatsApp%20Image%202025-12-29%20at%2023.43.52.jpeg", category: "clearance" },
     { url: "https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/sjhndmx0_WhatsApp%20Image%202025-12-29%20at%2023.43.53.jpeg", category: "before-after" },
-    { url: "https://images.unsplash.com/photo-1637681262973-a516e647e826?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwzfHx3YXN0ZSUyMHJlbW92YWx8ZW58MHx8fHwxNzY3MjIzODY3fDA&ixlib=rb-4.1.0&q=85", category: "cleaning" },
-    { url: "https://images.unsplash.com/photo-1562240020-ce31ccb0fa7d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwzfHxkZWNsdXR0ZXJpbmd8ZW58MHx8fHwxNzY3MjIzODg4fDA&ixlib=rb-4.1.0&q=85", category: "cleaning" }
+    { url: "https://images.unsplash.com/photo-1713730060332-2e478ce2e318", category: "clearance" },
+    { url: "https://images.unsplash.com/photo-1758272421751-963195322eaa", category: "cleaning" },
+    { url: "https://images.pexels.com/photos/7464722/pexels-photo-7464722.jpeg", category: "clearance" },
+    { url: "https://images.unsplash.com/photo-1581573833610-487d80de9aab", category: "clearance" }
   ];
 
   const reviews = [
