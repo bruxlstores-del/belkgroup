@@ -655,7 +655,7 @@ const Home = () => {
                 />
                 <Button 
                   type="submit" 
-                  className="w-full bg-blue-600 hover:bg-blue-700 hover:scale-105 text-lg py-6 transition-all duration-300"
+                  className="w-full bg-cyan-600 hover:bg-cyan-700 hover:scale-105 text-lg py-6 transition-all duration-300"
                 >
                   Envoyer le message
                 </Button>
