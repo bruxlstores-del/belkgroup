@@ -334,7 +334,7 @@ const Home = () => {
             {values.map((value, idx) => (
               <Card 
                 key={idx} 
-                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-t-4 border-blue-500 relative overflow-hidden"
+                className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-t-4 border-cyan-500 relative overflow-hidden"
                 style={{
                   transform: scrollY > 500 ? 'translateY(0)' : 'translateY(80px)',
                   opacity: scrollY > 500 ? 1 : 0,
