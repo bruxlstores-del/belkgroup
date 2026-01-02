@@ -630,45 +630,74 @@ const GalleryForm = ({ item, onSave, onCancel }) => {
 };
 
 // Gallery Card Component
-const GalleryCard = ({ item, onEdit, onDelete }) => (
-  <Card>
-    <CardContent className="p-6">
-      <div className="flex gap-4">
-        <div className="flex gap-2">
-          {item.image_before && (
-            <img src={item.image_before} alt="Avant" className="w-24 h-24 object-cover rounded-lg" />
-          )}
-          {item.image_after && (
-            <img src={item.image_after} alt="Après" className="w-24 h-24 object-cover rounded-lg" />
-          )}
-          {item.image && (
-            <img src={item.image} alt={item.title} className="w-24 h-24 object-cover rounded-lg" />
-          )}
-        </div>
-        <div className="flex-1">
-          <div className="flex items-center gap-2 mb-2">
-            <h3 className="text-xl font-bold">{item.title}</h3>
-            <span className="text-xs bg-cyan-100 text-cyan-700 px-2 py-1 rounded-full">
-              {item.category === 'before-after' ? 'Avant/Après' : 
-               item.category === 'clearance' ? 'Débarras' : 'Vide maison'}
-            </span>
-          </div>
-          <p className="text-gray-600 mb-4">{item.description}</p>
+const GalleryCard = ({ item, onEdit, onDelete }) => {
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  
+  const getImageUrl = (url) => {
+    return url?.startsWith('/') ? `${BACKEND_URL}${url}` : url;
+  };
+  
+  return (
+    <Card>
+      <CardContent className="p-6">
+        <div className="flex gap-4">
           <div className="flex gap-2">
-            <Button onClick={onEdit} variant="outline" size="sm" className="gap-2">
-              <Edit2 className="w-4 h-4" />
-              Modifier
-            </Button>
-            <Button onClick={onDelete} variant="destructive" size="sm" className="gap-2">
-              <Trash2 className="w-4 h-4" />
-              Supprimer
-            </Button>
+            {item.image_before && (
+              <img 
+                src={getImageUrl(item.image_before)} 
+                alt="Avant" 
+                className="w-24 h-24 object-cover rounded-lg"
+                onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/96x96?text=Avant';
+                }}
+              />
+            )}
+            {item.image_after && (
+              <img 
+                src={getImageUrl(item.image_after)} 
+                alt="Après" 
+                className="w-24 h-24 object-cover rounded-lg"
+                onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/96x96?text=Apres';
+                }}
+              />
+            )}
+            {item.image && (
+              <img 
+                src={getImageUrl(item.image)} 
+                alt={item.title} 
+                className="w-24 h-24 object-cover rounded-lg"
+                onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/96x96?text=Image';
+                }}
+              />
+            )}
+          </div>
+          <div className="flex-1">
+            <div className="flex items-center gap-2 mb-2">
+              <h3 className="text-xl font-bold">{item.title}</h3>
+              <span className="text-xs bg-cyan-100 text-cyan-700 px-2 py-1 rounded-full">
+                {item.category === 'before-after' ? 'Avant/Après' : 
+                 item.category === 'clearance' ? 'Débarras' : 'Vide maison'}
+              </span>
+            </div>
+            <p className="text-gray-600 mb-4">{item.description}</p>
+            <div className="flex gap-2">
+              <Button onClick={onEdit} variant="outline" size="sm" className="gap-2">
+                <Edit2 className="w-4 h-4" />
+                Modifier
+              </Button>
+              <Button onClick={onDelete} variant="destructive" size="sm" className="gap-2">
+                <Trash2 className="w-4 h-4" />
+                Supprimer
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
-    </CardContent>
-  </Card>
-);
+      </CardContent>
+    </Card>
+  );
+};
 
 // Contact Card Component
 const ContactCard = ({ contact, onDelete }) => (
