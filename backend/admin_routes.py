@@ -6,17 +6,18 @@ from models import (
     LoginRequest, LoginResponse, ContactForm
 )
 from auth import verify_token, create_access_token, verify_password, hash_password
-from motor.motor_asyncio import AsyncIOMotorClient
-import os
 from datetime import datetime
 import base64
 import uuid
 
 router = APIRouter(prefix="/api/admin", tags=["admin"])
 
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
+# These will be set by server.py
+db = None
+
+def set_db(database):
+    global db
+    db = database
 
 # Admin credentials
 ADMIN_EMAIL = "bruxlstores@gmail.com"
