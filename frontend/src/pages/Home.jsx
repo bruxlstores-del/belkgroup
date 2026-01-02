@@ -262,12 +262,12 @@ const Home = () => {
             filter: 'brightness(0.7)'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 to-blue-700/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-900/90 to-blue-900/80"></div>
         </div>
         
         {/* Floating shapes with parallax */}
         <div 
-          className="absolute top-20 left-10 w-20 h-20 bg-blue-400/20 rounded-full blur-xl"
+          className="absolute top-20 left-10 w-20 h-20 bg-cyan-400/20 rounded-full blur-xl"
           style={{ transform: `translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)` }}
         />
         <div 
@@ -275,18 +275,11 @@ const Home = () => {
           style={{ transform: `translate(${mousePosition.x * -0.03}px, ${mousePosition.y * -0.03}px)` }}
         />
         <div 
-          className="absolute top-1/2 left-1/3 w-24 h-24 bg-cyan-400/20 rounded-full blur-xl"
+          className="absolute top-1/2 left-1/3 w-24 h-24 bg-cyan-300/20 rounded-full blur-xl"
           style={{ transform: `translate(${mousePosition.x * 0.015}px, ${mousePosition.y * 0.015}px)` }}
         />
         
         <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
-          <div className="mb-8 animate-fade-in">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/3p5jqlgb_119679941_120260503151314_3370746681324528639_n.jpg"
-              alt="BelkGroup"
-              className="h-32 w-auto mx-auto drop-shadow-2xl"
-            />
-          </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in drop-shadow-lg">
             Expert Belge en débarras et tri
           </h1>
