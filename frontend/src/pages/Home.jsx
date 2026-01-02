@@ -337,16 +337,19 @@ const Home = () => {
             <Button 
               onClick={() => scrollToSection('contact')}
               size="lg" 
-              className="bg-cyan-500 text-white hover:bg-cyan-600 hover:scale-105 text-lg px-8 py-6 transition-all duration-300"
+              className="bg-gradient-to-r from-cyan-500 to-cyan-600 text-white hover:from-cyan-600 hover:to-cyan-700 hover:scale-110 hover:shadow-2xl hover:shadow-cyan-500/50 text-lg px-8 py-6 transition-all duration-500 transform relative overflow-hidden group"
             >
-              Demandez votre devis
-              <ArrowRight className="ml-2" />
+              <span className="relative z-10 flex items-center">
+                Demandez votre devis
+                <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform duration-300" />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </Button>
             <Button 
               onClick={() => scrollToSection('avis')}
               size="lg" 
               variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-cyan-600 hover:scale-105 text-lg px-8 py-6 transition-all duration-300"
+              className="border-2 border-white text-white hover:bg-white hover:text-cyan-600 hover:scale-110 hover:shadow-2xl text-lg px-8 py-6 transition-all duration-500 backdrop-blur-sm"
             >
               Voir les avis clients
             </Button>
