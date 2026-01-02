@@ -437,7 +437,7 @@ const GalleryForm = ({ item, onSave, onCancel }) => {
         >
           <option value="before-after">Avant/Après</option>
           <option value="clearance">Débarras</option>
-          <option value="cleaning">Nettoyage</option>
+          <option value="vide-maison">Vide maison</option>
         </select>
         
         {formData.category === 'before-after' ? (
