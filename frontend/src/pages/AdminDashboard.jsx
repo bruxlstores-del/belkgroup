@@ -454,31 +454,43 @@ const ServiceForm = ({ service, onSave, onCancel }) => {
 };
 
 // Service Card Component
-const ServiceCard = ({ service, onEdit, onDelete }) => (
-  <Card>
-    <CardContent className="p-6">
-      <div className="flex gap-4">
-        {service.image && (
-          <img src={service.image} alt={service.title} className="w-32 h-32 object-cover rounded-lg" />
-        )}
-        <div className="flex-1">
-          <h3 className="text-xl font-bold mb-2">{service.title}</h3>
-          <p className="text-gray-600 mb-4">{service.description}</p>
-          <div className="flex gap-2">
-            <Button onClick={onEdit} variant="outline" size="sm" className="gap-2">
-              <Edit2 className="w-4 h-4" />
-              Modifier
-            </Button>
-            <Button onClick={onDelete} variant="destructive" size="sm" className="gap-2">
-              <Trash2 className="w-4 h-4" />
-              Supprimer
-            </Button>
+const ServiceCard = ({ service, onEdit, onDelete }) => {
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  const imageUrl = service.image?.startsWith('/') ? `${BACKEND_URL}${service.image}` : service.image;
+  
+  return (
+    <Card>
+      <CardContent className="p-6">
+        <div className="flex gap-4">
+          {service.image && (
+            <img 
+              src={imageUrl} 
+              alt={service.title} 
+              className="w-32 h-32 object-cover rounded-lg"
+              onError={(e) => {
+                e.target.src = 'https://via.placeholder.com/128x128?text=Image';
+              }}
+            />
+          )}
+          <div className="flex-1">
+            <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+            <p className="text-gray-600 mb-4">{service.description}</p>
+            <div className="flex gap-2">
+              <Button onClick={onEdit} variant="outline" size="sm" className="gap-2">
+                <Edit2 className="w-4 h-4" />
+                Modifier
+              </Button>
+              <Button onClick={onDelete} variant="destructive" size="sm" className="gap-2">
+                <Trash2 className="w-4 h-4" />
+                Supprimer
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
-    </CardContent>
-  </Card>
-);
+      </CardContent>
+    </Card>
+  );
+};
 
 // Gallery Form Component
 const GalleryForm = ({ item, onSave, onCancel }) => {
