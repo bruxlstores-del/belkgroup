@@ -106,33 +106,6 @@ const Home = () => {
     }
   ];
 
-  const beforeAfterProjects = [
-    {
-      before: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800",
-      after: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
-      title: "Vide salon - Appartement",
-      description: "Salon encombré transformé en espace lumineux et vide"
-    },
-    {
-      before: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800",
-      after: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800",
-      title: "Débarras chambre",
-      description: "Chambre complètement encombrée vidée et nettoyée"
-    },
-    {
-      before: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800",
-      after: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
-      title: "Vide grenier complet",
-      description: "Grenier rempli d'objets entièrement débarrassé"
-    },
-    {
-      before: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
-      after: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800",
-      title: "Nettoyage cave",
-      description: "Cave encombrée transformée en espace propre"
-    }
-  ];
-
   const galleryImages = [
     { url: "https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/2lafmwkg_WhatsApp%20Image%202025-12-29%20at%2023.43.52%20%281%29.jpeg", category: "before-after" },
     { url: "https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/g1qvvgcj_WhatsApp%20Image%202025-12-29%20at%2023.43.52%20%282%29.jpeg", category: "clearance" },
