@@ -38,12 +38,18 @@ const Home = () => {
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('mousemove', handleMouseMove);
     
-    // Load data from backend
+    // Load data from backend initially
     loadData();
+    
+    // Refresh data every 10 seconds for real-time sync
+    const refreshInterval = setInterval(() => {
+      loadData();
+    }, 10000);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
+      clearInterval(refreshInterval);
     };
   }, []);
 
