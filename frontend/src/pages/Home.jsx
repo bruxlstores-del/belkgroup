@@ -259,7 +259,7 @@ const Home = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/6195114/pexels-photo-6195114.jpeg)',
+            backgroundImage: 'url(https://images.unsplash.com/photo-1581573833610-487d80de9aab)',
             transform: `translateY(${scrollY * 0.5}px)`,
             filter: 'brightness(0.7)'
           }}
