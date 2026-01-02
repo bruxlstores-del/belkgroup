@@ -957,10 +957,30 @@ const Home = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-gray-400">
-                <li className="hover:text-white transition-colors cursor-pointer">Débarras d'encombrants</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Vide maison complet</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Vide cave et grenier</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Débarras de bureau</li>
+                <li 
+                  onClick={() => scrollToSection('services')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Débarras d'encombrants
+                </li>
+                <li 
+                  onClick={() => scrollToSection('services')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Vide maison complet
+                </li>
+                <li 
+                  onClick={() => scrollToSection('services')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Vide cave et grenier
+                </li>
+                <li 
+                  onClick={() => scrollToSection('services')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Débarras de bureau
+                </li>
               </ul>
             </div>
             <div>
