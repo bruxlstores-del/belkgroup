@@ -183,13 +183,11 @@ async def upload_image(file: UploadFile = File(...), authorization: Optional[str
     """Upload image and return URL"""
     await verify_admin_token(authorization)
     
-    # Read file content
-    contents = await file.read()
+    from file_upload import save_upload_file
     
-    # For now, we'll return a data URL (base64 encoded)
-    # In production, you'd upload to cloud storage (S3, Cloudinary, etc.)
-    file_extension = file.filename.split('.')[-1]
-    base64_encoded = base64.b64encode(contents).decode('utf-8')
-    data_url = f"data:image/{file_extension};base64,{base64_encoded}"
-    
-    return {"url": data_url, "filename": file.filename}
+    try:
+        # Save file and get URL
+        file_url = save_upload_file(file)
+        return {"url": file_url, "filename": file.filename}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error uploading file: {str(e)}")
