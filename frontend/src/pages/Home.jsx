@@ -151,25 +151,25 @@ const Home = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Send to backend
-    axios.post(`${API}/contact`, formData)
-      .then(() => {
-        toast({
-          title: "Message envoyé!",
-          description: "Nous vous répondrons dans les 24 heures.",
-        });
-        setFormData({ name: '', email: '', phone: '', postalCode: '', subject: '', message: '' });
-      })
-      .catch((error) => {
-        toast({
-          title: "Erreur",
-          description: "Une erreur est survenue. Veuillez réessayer.",
-          variant: "destructive"
-        });
+    try {
+      // Send to backend
+      await axios.post(`${API}/contact`, formData);
+      toast({
+        title: "Message envoyé!",
+        description: "Nous vous répondrons dans les 24 heures.",
       });
+      setFormData({ name: '', email: '', phone: '', postalCode: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue. Veuillez réessayer.",
+        variant: "destructive"
+      });
+    }
   };
 
   const values = [
