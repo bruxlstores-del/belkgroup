@@ -190,9 +190,9 @@ const Home = () => {
           </path>
           <defs>
             <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ stopColor: '#1e40af', stopOpacity: 0.5 }} />
-              <stop offset="50%" style={{ stopColor: '#3b82f6', stopOpacity: 0.4 }} />
-              <stop offset="100%" style={{ stopColor: '#1e40af', stopOpacity: 0.5 }} />
+              <stop offset="0%" style={{ stopColor: '#1e3a8a', stopOpacity: 0.5 }} />
+              <stop offset="50%" style={{ stopColor: '#06b6d4', stopOpacity: 0.4 }} />
+              <stop offset="100%" style={{ stopColor: '#1e3a8a', stopOpacity: 0.5 }} />
             </linearGradient>
           </defs>
         </svg>
