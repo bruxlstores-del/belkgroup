@@ -727,13 +727,13 @@ const Home = () => {
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/5kqhc8io_Design%20sans%20titre.png"
-                  alt="BelkGroup Logo"
+                  src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/h2noocde_Design%20sans%20titre.png"
+                  alt="BelkGroup Cleaning Service Logo"
                   className="h-16 w-auto object-contain"
                 />
               </div>
               <p className="text-gray-400 mb-4">
-                Expert belge en débarras et tri pour particuliers et professionnels.
+                Spécialiste en débarras d'encombrants et vide maison pour particuliers et professionnels.
               </p>
               <div className="flex space-x-4">
                 <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-900 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 cursor-pointer">
