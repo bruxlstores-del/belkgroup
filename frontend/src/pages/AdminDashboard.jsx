@@ -490,6 +490,46 @@ const GalleryForm = ({ item, onSave, onCancel }) => {
     image_after: '',
     image: ''
   });
+  const [uploading, setUploading] = useState(false);
+
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  const API = `${BACKEND_URL}/api`;
+
+  const getAuthHeader = () => ({
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+    }
+  });
+
+  const handleImageUpload = async (e, field) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploading(true);
+    try {
+      const formDataUpload = new FormData();
+      formDataUpload.append('file', file);
+
+      const response = await axios.post(
+        `${API}/admin/upload-image`,
+        formDataUpload,
+        {
+          ...getAuthHeader(),
+          headers: {
+            ...getAuthHeader().headers,
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+      );
+
+      setFormData(prev => ({ ...prev, [field]: response.data.url }));
+      toast({ title: "Image téléchargée avec succès" });
+    } catch (error) {
+      toast({ title: "Erreur lors du téléchargement", variant: "destructive" });
+    } finally {
+      setUploading(false);
+    }
+  };
 
   return (
     <Card className="border-2 border-cyan-500">
@@ -517,27 +557,53 @@ const GalleryForm = ({ item, onSave, onCancel }) => {
         
         {formData.category === 'before-after' ? (
           <>
-            <Input
-              placeholder="URL image AVANT"
-              value={formData.image_before}
-              onChange={(e) => setFormData({ ...formData, image_before: e.target.value })}
-            />
-            <Input
-              placeholder="URL image APRÈS"
-              value={formData.image_after}
-              onChange={(e) => setFormData({ ...formData, image_after: e.target.value })}
-            />
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700">Image AVANT</label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => handleImageUpload(e, 'image_before')}
+                className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100"
+                disabled={uploading}
+              />
+              {formData.image_before && (
+                <img src={formData.image_before.startsWith('/') ? `${BACKEND_URL}${formData.image_before}` : formData.image_before} alt="Avant" className="h-24 rounded-lg" />
+              )}
+            </div>
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-gray-700">Image APRÈS</label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => handleImageUpload(e, 'image_after')}
+                className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100"
+                disabled={uploading}
+              />
+              {formData.image_after && (
+                <img src={formData.image_after.startsWith('/') ? `${BACKEND_URL}${formData.image_after}` : formData.image_after} alt="Après" className="h-24 rounded-lg" />
+              )}
+            </div>
           </>
         ) : (
-          <Input
-            placeholder="URL de l'image"
-            value={formData.image}
-            onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-          />
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">Image</label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => handleImageUpload(e, 'image')}
+              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100"
+              disabled={uploading}
+            />
+            {formData.image && (
+              <img src={formData.image.startsWith('/') ? `${BACKEND_URL}${formData.image}` : formData.image} alt="Preview" className="h-24 rounded-lg" />
+            )}
+          </div>
         )}
         
+        {uploading && <p className="text-sm text-gray-500">Téléchargement en cours...</p>}
+        
         <div className="flex gap-2">
-          <Button onClick={() => onSave(formData)} className="bg-cyan-600 hover:bg-cyan-700 gap-2">
+          <Button onClick={() => onSave(formData)} className="bg-cyan-600 hover:bg-cyan-700 gap-2" disabled={uploading}>
             <Save className="w-4 h-4" />
             Sauvegarder
           </Button>
