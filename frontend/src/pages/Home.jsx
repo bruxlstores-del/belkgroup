@@ -489,25 +489,26 @@ const Home = () => {
             {services.map((service, idx) => (
               <Card 
                 key={idx} 
-                className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                className="group overflow-hidden hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-3 hover:rotate-1 border-2 border-transparent hover:border-cyan-500"
                 style={{
-                  transform: scrollY > 1700 ? 'translateY(0)' : 'translateY(80px)',
+                  transform: scrollY > 1700 ? 'translateY(0) rotateY(0deg)' : 'translateY(80px) rotateY(-15deg)',
                   opacity: scrollY > 1700 ? 1 : 0,
-                  transition: `all 0.8s ease-out ${idx * 0.15}s`
+                  transition: `all 1s cubic-bezier(0.34, 1.56, 0.64, 1) ${idx * 0.15}s`
                 }}
               >
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src={service.image} 
                     alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
+                    className="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-3 transition-all duration-1000"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-cyan-900/80 transition-colors duration-500"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent group-hover:from-cyan-900/90 transition-all duration-700"></div>
+                  <div className="absolute inset-0 bg-cyan-500/0 group-hover:bg-cyan-500/10 transition-colors duration-700"></div>
+                  <div className="absolute bottom-4 left-4 right-4 transform translate-y-0 group-hover:-translate-y-2 transition-transform duration-500">
                     <h3 className="text-2xl font-bold text-white mb-2 group-hover:scale-105 transition-transform duration-300">{service.title}</h3>
                   </div>
                 </div>
-                <CardContent className="p-6">
+                <CardContent className="p-6 bg-gradient-to-br from-white to-gray-50">
                   <p className="text-gray-600">{service.description}</p>
                 </CardContent>
               </Card>
