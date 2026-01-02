@@ -744,10 +744,10 @@ const Home = () => {
             <div>
               <h4 className="text-lg font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-gray-400">
-                <li className="hover:text-white transition-colors cursor-pointer">Enlèvement d'encombrants</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Débarras de maison</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Service de nettoyage</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Monte-charge</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Débarras d'encombrants</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Vide maison complet</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Vide cave et grenier</li>
+                <li className="hover:text-white transition-colors cursor-pointer">Débarras de bureau</li>
               </ul>
             </div>
             <div>
