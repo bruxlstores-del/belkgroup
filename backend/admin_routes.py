@@ -10,6 +10,12 @@ from datetime import datetime
 import base64
 import uuid
 import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables
+ROOT_DIR = Path(__file__).parent
+load_dotenv(ROOT_DIR / '.env')
 
 router = APIRouter(prefix="/api/admin", tags=["admin"])
 
@@ -21,8 +27,8 @@ def set_db(database):
     db = database
 
 # Admin credentials from environment
-ADMIN_EMAIL = os.environ['ADMIN_EMAIL']
-ADMIN_PASSWORD_HASH = hash_password(os.environ['ADMIN_PASSWORD'])
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'bruxlstores@gmail.com')
+ADMIN_PASSWORD_HASH = hash_password(os.environ.get('ADMIN_PASSWORD', 'SerrarMohamed73@'))
 
 async def verify_admin_token(authorization: Optional[str] = Header(None)):
     """Verify admin token from Authorization header"""
