@@ -451,7 +451,7 @@ const Home = () => {
                     alt={service.title}
                     className="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-2 transition-all duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-blue-900/80 transition-colors duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:from-cyan-900/80 transition-colors duration-500"></div>
                   <div className="absolute bottom-4 left-4 right-4">
                     <h3 className="text-2xl font-bold text-white mb-2 group-hover:scale-105 transition-transform duration-300">{service.title}</h3>
                   </div>
