@@ -220,26 +220,14 @@ const Home = () => {
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-3 group cursor-pointer">
-              <div className="relative">
-                <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-xl group-hover:bg-blue-500/40 transition-all duration-300"></div>
-                <img 
-                  src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/3p5jqlgb_119679941_120260503151314_3370746681324528639_n.jpg"
-                  alt="BelkGroup Logo"
-                  className="h-14 w-auto object-contain relative z-10 drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-              <div>
-                <span className={`text-2xl font-bold block transition-colors duration-300 ${
-                  scrollY > 50 ? 'text-blue-900' : 'text-white'
-                }`}>
-                  <span className="text-blue-600 group-hover:text-blue-500 transition-colors">Belk</span>
-                  <span className={scrollY > 50 ? 'text-blue-900 group-hover:text-blue-800' : 'text-white'}>Group</span>
-                </span>
-                <span className={`text-xs font-medium transition-colors ${
-                  scrollY > 50 ? 'text-blue-600' : 'text-blue-200'
-                }`}>Cleaning Service</span>
-              </div>
+            <div className="flex items-center group cursor-pointer">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/5kqhc8io_Design%20sans%20titre.png"
+                alt="BelkGroup Logo"
+                className={`h-16 w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
+                  scrollY > 50 ? 'drop-shadow-lg' : 'drop-shadow-2xl'
+                }`}
+              />
             </div>
             <div className="hidden md:flex space-x-8">
               {['Nos valeurs', 'Services', 'Réalisations', 'Avis', 'Contact'].map((item, idx) => (
