@@ -222,8 +222,8 @@ const Home = () => {
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center group cursor-pointer">
               <img 
-                src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/5kqhc8io_Design%20sans%20titre.png"
-                alt="BelkGroup Logo"
+                src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/h2noocde_Design%20sans%20titre.png"
+                alt="BelkGroup Cleaning Service Logo"
                 className={`h-16 w-auto object-contain transition-all duration-300 group-hover:scale-105 ${
                   scrollY > 50 ? 'drop-shadow-lg' : 'drop-shadow-2xl'
                 }`}
