@@ -1,4 +1,5 @@
 from fastapi import FastAPI, APIRouter
+from fastapi.staticfiles import StaticFiles
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -6,6 +7,7 @@ import os
 import logging
 from pathlib import Path
 from models import ContactFormCreate, ContactForm
+from email_service import send_contact_email
 import uuid
 from datetime import datetime
 
@@ -26,6 +28,11 @@ set_db(db)
 # Create the main app without a prefix
 app = FastAPI()
 
+# Mount uploads directory for serving static files
+uploads_dir = ROOT_DIR / "uploads"
+uploads_dir.mkdir(exist_ok=True)
+app.mount("/uploads", StaticFiles(directory=str(uploads_dir)), name="uploads")
+
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
@@ -36,10 +43,16 @@ async def root():
 
 @api_router.post("/contact")
 async def create_contact(contact: ContactFormCreate):
-    """Create contact form submission"""
+    """Create contact form submission and send email"""
     contact_dict = contact.dict()
     contact_obj = ContactForm(**contact_dict)
+    
+    # Save to database
     await db.contacts.insert_one(contact_obj.dict())
+    
+    # Send email
+    send_contact_email(contact_dict)
+    
     return {"message": "Contact form submitted successfully", "id": contact_obj.id}
 
 @api_router.get("/services")
