@@ -942,7 +942,7 @@ const Home = () => {
                 <img 
                   src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/h2noocde_Design%20sans%20titre.png"
                   alt="BelkGroup Cleaning Service Logo"
-                  className="h-16 w-auto object-contain"
+                  className="h-16 w-auto object-contain rounded-xl"
                 />
               </div>
               <p className="text-gray-400 mb-4">
