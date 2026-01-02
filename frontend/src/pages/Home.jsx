@@ -195,40 +195,6 @@ const Home = () => {
     }
   ];
 
-  const services = [
-    {
-      image: "https://images.unsplash.com/photo-1681731059898-72407df8431a",
-      title: "Débarras d'encombrants",
-      description: "Nous enlevons rapidement tous vos objets encombrants : meubles, électroménagers, matelas, cartons. Service complet avec tri et évacuation professionnelle."
-    },
-    {
-      image: "https://images.unsplash.com/photo-1671351967814-834d376fcd1d",
-      title: "Vide maison complet",
-      description: "Succession, déménagement ou rénovation ? Nous vidons entièrement votre maison ou appartement avec soin et efficacité. Prise en charge totale de A à Z."
-    },
-    {
-      image: "https://images.unsplash.com/photo-1709831917664-804b57448953",
-      title: "Vide cave et grenier",
-      description: "Libérez vos caves, greniers et garages encombrés. Notre équipe accède aux espaces difficiles et évacue tous vos encombrants en toute sécurité."
-    },
-    {
-      image: "https://images.unsplash.com/photo-1581573833610-487d80de9aab",
-      title: "Débarras de bureau",
-      description: "Fermeture, déménagement ou réorganisation de bureaux ? Nous nous occupons du débarras professionnel de vos locaux commerciaux et administratifs."
-    }
-  ];
-
-  const galleryImages = [
-    { url: "https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/2lafmwkg_WhatsApp%20Image%202025-12-29%20at%2023.43.52%20%281%29.jpeg", category: "before-after" },
-    { url: "https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/g1qvvgcj_WhatsApp%20Image%202025-12-29%20at%2023.43.52%20%282%29.jpeg", category: "clearance" },
-    { url: "https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/6b0kegfx_WhatsApp%20Image%202025-12-29%20at%2023.43.52.jpeg", category: "clearance" },
-    { url: "https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/sjhndmx0_WhatsApp%20Image%202025-12-29%20at%2023.43.53.jpeg", category: "before-after" },
-    { url: "https://images.unsplash.com/photo-1713730060332-2e478ce2e318", category: "clearance" },
-    { url: "https://images.unsplash.com/photo-1758272421751-963195322eaa", category: "cleaning" },
-    { url: "https://images.pexels.com/photos/7464722/pexels-photo-7464722.jpeg", category: "clearance" },
-    { url: "https://images.unsplash.com/photo-1581573833610-487d80de9aab", category: "clearance" }
-  ];
-
   const reviews = [
     {
       name: "Ihsan Chamali",
@@ -256,7 +222,7 @@ const Home = () => {
     }
   ];
 
-  const filteredGallery = activeFilter === 'all' ? galleryImages : galleryImages.filter(img => img.category === activeFilter);
+  const filteredGallery = activeFilter === 'all' ? galleryItems : galleryItems.filter(img => img.category === activeFilter);
 
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
