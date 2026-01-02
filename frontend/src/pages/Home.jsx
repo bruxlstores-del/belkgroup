@@ -513,11 +513,18 @@ const Home = () => {
       </section>
 
       {/* Before/After Section */}
-      <section className="py-20 bg-white relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50 relative z-10 overflow-hidden">
+        {/* Animated background */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 
-              className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
+              className="text-4xl md:text-6xl font-bold text-gray-900 mb-4"
               style={{
                 transform: scrollY > 2400 ? 'translateY(0)' : 'translateY(50px)',
                 opacity: scrollY > 2400 ? 1 : 0,
@@ -526,55 +533,91 @@ const Home = () => {
             >
               Nos Chantiers Avant/Après
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-900 mx-auto mb-4"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <div className="w-32 h-1.5 bg-gradient-to-r from-cyan-500 via-blue-600 to-cyan-500 mx-auto mb-6 rounded-full"></div>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               Découvrez la transformation spectaculaire de nos chantiers de débarras
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {beforeAfterProjects.map((project, idx) => (
               <div 
                 key={idx}
                 className="group"
                 style={{
-                  transform: scrollY > 2500 ? 'translateY(0)' : 'translateY(80px)',
+                  transform: scrollY > 2500 ? 'translateY(0) rotateX(0deg)' : 'translateY(80px) rotateX(-10deg)',
                   opacity: scrollY > 2500 ? 1 : 0,
-                  transition: `all 0.8s ease-out ${idx * 0.15}s`
+                  transition: `all 1s cubic-bezier(0.34, 1.56, 0.64, 1) ${idx * 0.2}s`
                 }}
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-500">
-                  <div className="relative">
-                    <div className="grid grid-cols-2 gap-0">
-                      {/* AVANT */}
-                      <div className="relative h-64 overflow-hidden border-r-2 border-gray-200">
-                        <div className="absolute top-2 left-2 z-10 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
-                          AVANT
+                <Card className="overflow-hidden hover:shadow-2xl transition-all duration-700 transform hover:-translate-y-2 bg-white/80 backdrop-blur-sm border-2 border-transparent hover:border-cyan-500">
+                  <div className="relative h-80 overflow-hidden">
+                    {/* Before Image */}
+                    <img 
+                      src={project.before} 
+                      alt="Avant débarras"
+                      className="absolute inset-0 w-full h-full object-cover"
+                      style={{
+                        clipPath: `inset(0 ${100 - sliderPositions[idx]}% 0 0)`
+                      }}
+                    />
+                    
+                    {/* After Image */}
+                    <img 
+                      src={project.after} 
+                      alt="Après débarras"
+                      className="absolute inset-0 w-full h-full object-cover"
+                      style={{
+                        clipPath: `inset(0 0 0 ${sliderPositions[idx]}%)`
+                      }}
+                    />
+                    
+                    {/* Labels */}
+                    <div className="absolute top-4 left-4 z-20 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
+                      AVANT
+                    </div>
+                    <div className="absolute top-4 right-4 z-20 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
+                      APRÈS
+                    </div>
+                    
+                    {/* Interactive Slider */}
+                    <div 
+                      className="absolute top-0 bottom-0 z-30 w-1 bg-white shadow-2xl cursor-ew-resize"
+                      style={{
+                        left: `${sliderPositions[idx]}%`,
+                        boxShadow: '0 0 20px rgba(255,255,255,0.8)'
+                      }}
+                    >
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-2xl flex items-center justify-center border-4 border-cyan-500 hover:scale-125 transition-transform duration-300">
+                        <div className="flex gap-1">
+                          <div className="w-1 h-4 bg-cyan-500 rounded-full"></div>
+                          <div className="w-1 h-4 bg-cyan-500 rounded-full"></div>
                         </div>
-                        <img 
-                          src={project.before} 
-                          alt="Avant débarras"
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                      </div>
-                      
-                      {/* APRÈS */}
-                      <div className="relative h-64 overflow-hidden">
-                        <div className="absolute top-2 right-2 z-10 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
-                          APRÈS
-                        </div>
-                        <img 
-                          src={project.after} 
-                          alt="Après débarras"
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
                       </div>
                     </div>
+                    
+                    {/* Interactive overlay */}
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={sliderPositions[idx]}
+                      onChange={(e) => handleSliderChange(idx, parseInt(e.target.value))}
+                      className="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-40"
+                    />
                   </div>
                   
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
-                    <p className="text-gray-600">{project.description}</p>
+                  <CardContent className="p-6 bg-gradient-to-br from-white to-gray-50">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-2 h-2 bg-cyan-500 rounded-full animate-pulse"></div>
+                      <h3 className="text-2xl font-bold text-gray-900 group-hover:text-cyan-600 transition-colors duration-300">
+                        {project.title}
+                      </h3>
+                    </div>
+                    <p className="text-gray-600 leading-relaxed">{project.description}</p>
+                    <p className="text-sm text-cyan-600 mt-3 font-semibold">
+                      ← Glissez pour comparer →
+                    </p>
                   </CardContent>
                 </Card>
               </div>
