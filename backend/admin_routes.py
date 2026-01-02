@@ -63,7 +63,7 @@ async def verify_admin(authorization: Optional[str] = Header(None)):
 async def get_services(authorization: Optional[str] = Header(None)):
     """Get all services"""
     await verify_admin_token(authorization)
-    services = await db.services.find().sort("order", 1).to_list(100)
+    services = await db.services.find({}, {'_id': 0}).sort("order", 1).to_list(100)
     return [Service(**service) for service in services]
 
 @router.post("/services", response_model=Service)
