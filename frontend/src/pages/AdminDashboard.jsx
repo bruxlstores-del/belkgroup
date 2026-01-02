@@ -337,6 +337,46 @@ const ServiceForm = ({ service, onSave, onCancel }) => {
     image: '',
     order: 0
   });
+  const [uploading, setUploading] = useState(false);
+
+  const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+  const API = `${BACKEND_URL}/api`;
+
+  const getAuthHeader = () => ({
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+    }
+  });
+
+  const handleImageUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploading(true);
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const response = await axios.post(
+        `${API}/admin/upload-image`,
+        formData,
+        {
+          ...getAuthHeader(),
+          headers: {
+            ...getAuthHeader().headers,
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+      );
+
+      setFormData(prev => ({ ...prev, image: response.data.url }));
+      toast({ title: "Image téléchargée avec succès" });
+    } catch (error) {
+      toast({ title: "Erreur lors du téléchargement", variant: "destructive" });
+    } finally {
+      setUploading(false);
+    }
+  };
 
   return (
     <Card className="border-2 border-cyan-500">
@@ -352,11 +392,22 @@ const ServiceForm = ({ service, onSave, onCancel }) => {
           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
           rows={3}
         />
-        <Input
-          placeholder="URL de l'image"
-          value={formData.image}
-          onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-        />
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-700">Image</label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100"
+            disabled={uploading}
+          />
+          {formData.image && (
+            <div className="mt-2">
+              <img src={formData.image.startsWith('/') ? `${BACKEND_URL}${formData.image}` : formData.image} alt="Preview" className="h-32 rounded-lg" />
+            </div>
+          )}
+          {uploading && <p className="text-sm text-gray-500">Téléchargement en cours...</p>}
+        </div>
         <Input
           type="number"
           placeholder="Ordre d'affichage"
