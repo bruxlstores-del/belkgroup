@@ -328,7 +328,7 @@ const Home = () => {
             >
               Nos Valeurs
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-900 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, idx) => (
@@ -432,7 +432,7 @@ const Home = () => {
             >
               Nos Services
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-900 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, idx) => (
@@ -544,7 +544,7 @@ const Home = () => {
             >
               Avis Clients
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-900 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {reviews.map((review, idx) => (
@@ -593,7 +593,7 @@ const Home = () => {
             >
               Contactez-nous
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-900 mx-auto"></div>
           </div>
           <div className="grid md:grid-cols-2 gap-12">
             <div
