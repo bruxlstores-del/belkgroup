@@ -166,9 +166,9 @@ const Home = () => {
           </path>
           <defs>
             <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style={{ stopColor: '#3b82f6', stopOpacity: 0.4 }} />
-              <stop offset="50%" style={{ stopColor: '#60a5fa', stopOpacity: 0.3 }} />
-              <stop offset="100%" style={{ stopColor: '#3b82f6', stopOpacity: 0.4 }} />
+              <stop offset="0%" style={{ stopColor: '#06b6d4', stopOpacity: 0.4 }} />
+              <stop offset="50%" style={{ stopColor: '#22d3ee', stopOpacity: 0.3 }} />
+              <stop offset="100%" style={{ stopColor: '#06b6d4', stopOpacity: 0.4 }} />
             </linearGradient>
           </defs>
         </svg>
