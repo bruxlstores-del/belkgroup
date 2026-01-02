@@ -583,7 +583,7 @@ const Home = () => {
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-8"></div>
             <div className="flex flex-wrap justify-center gap-4 mb-8">
-              {['all', 'before-after', 'clearance', 'cleaning'].map((filter) => (
+              {['all', 'before-after', 'clearance', 'vide-maison'].map((filter) => (
                 <Button
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
@@ -596,7 +596,7 @@ const Home = () => {
                 >
                   {filter === 'all' ? 'Tout voir' : 
                    filter === 'before-after' ? 'Avant/Après' :
-                   filter === 'clearance' ? 'Débarras' : 'Nettoyage'}
+                   filter === 'clearance' ? 'Débarras' : 'Vide maison'}
                 </Button>
               ))}
             </div>
