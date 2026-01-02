@@ -497,7 +497,7 @@ const GalleryCard = ({ item, onEdit, onDelete }) => (
             <h3 className="text-xl font-bold">{item.title}</h3>
             <span className="text-xs bg-cyan-100 text-cyan-700 px-2 py-1 rounded-full">
               {item.category === 'before-after' ? 'Avant/Après' : 
-               item.category === 'clearance' ? 'Débarras' : 'Nettoyage'}
+               item.category === 'clearance' ? 'Débarras' : 'Vide maison'}
             </span>
           </div>
           <p className="text-gray-600 mb-4">{item.description}</p>
