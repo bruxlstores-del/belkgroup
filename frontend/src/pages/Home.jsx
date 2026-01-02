@@ -369,7 +369,7 @@ const Home = () => {
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
                 BELKGROUP
               </h2>
-              <h3 className="text-2xl font-semibold text-blue-600 mb-4">
+              <h3 className="text-2xl font-semibold text-cyan-600 mb-4">
                 Votre spécialiste en débarras de maison dans votre région !
               </h3>
               <p className="text-gray-600 mb-4">
