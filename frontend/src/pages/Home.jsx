@@ -290,7 +290,7 @@ const Home = () => {
             <Button 
               onClick={() => scrollToSection('contact')}
               size="lg" 
-              className="bg-white text-blue-600 hover:bg-gray-100 hover:scale-105 text-lg px-8 py-6 transition-all duration-300"
+              className="bg-cyan-500 text-white hover:bg-cyan-600 hover:scale-105 text-lg px-8 py-6 transition-all duration-300"
             >
               Demandez votre devis
               <ArrowRight className="ml-2" />
@@ -299,7 +299,7 @@ const Home = () => {
               onClick={() => scrollToSection('avis')}
               size="lg" 
               variant="outline" 
-              className="border-2 border-white text-white hover:bg-white hover:text-blue-600 hover:scale-105 text-lg px-8 py-6 transition-all duration-300"
+              className="border-2 border-white text-white hover:bg-white hover:text-cyan-600 hover:scale-105 text-lg px-8 py-6 transition-all duration-300"
             >
               Voir les avis clients
             </Button>
