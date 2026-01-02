@@ -341,9 +341,9 @@ const Home = () => {
                   transition: `all 0.8s ease-out ${idx * 0.1}s`
                 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <CardContent className="p-6 text-center relative z-10">
-                  <div className="text-blue-600 mb-4 flex justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <div className="text-cyan-600 mb-4 flex justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                     {value.icon}
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
