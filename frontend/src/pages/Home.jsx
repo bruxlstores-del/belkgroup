@@ -106,14 +106,6 @@ const Home = () => {
     }
   ];
 
-  const [sliderPositions, setSliderPositions] = React.useState([50, 50, 50, 50]);
-
-  const handleSliderChange = (index, value) => {
-    const newPositions = [...sliderPositions];
-    newPositions[index] = value;
-    setSliderPositions(newPositions);
-  };
-
   const beforeAfterProjects = [
     {
       before: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800",
