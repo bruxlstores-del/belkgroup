@@ -408,9 +408,9 @@ const Home = () => {
               }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1562240020-ce31ccb0fa7d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwzfHxkZWNsdXR0ZXJpbmd8ZW58MHx8fHwxNzY3MjIzODg4fDA&ixlib=rb-4.1.0&q=85"
-                alt="Clearing service"
-                className="rounded-lg shadow-2xl hover:shadow-blue-300 transition-shadow duration-500"
+                src="https://images.unsplash.com/photo-1614359835514-92f8ba196357"
+                alt="BelkGroup Clearing service team"
+                className="rounded-lg shadow-2xl hover:shadow-cyan-300 transition-shadow duration-500"
               />
               <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-cyan-500 to-blue-900 text-white p-6 rounded-lg shadow-xl hover:scale-110 transition-transform duration-300 cursor-pointer">
                 <p className="text-4xl font-bold">10+</p>
