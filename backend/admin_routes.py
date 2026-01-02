@@ -161,7 +161,7 @@ async def delete_gallery_item(item_id: str, authorization: Optional[str] = Heade
 async def get_contacts(authorization: Optional[str] = Header(None)):
     """Get all contact form submissions"""
     await verify_admin_token(authorization)
-    contacts = await db.contacts.find().sort("created_at", -1).to_list(100)
+    contacts = await db.contacts.find({}, {'_id': 0}).sort("created_at", -1).to_list(100)
     return [ContactForm(**contact) for contact in contacts]
 
 @router.delete("/contacts/{contact_id}")
