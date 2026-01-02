@@ -203,7 +203,7 @@ const Home = () => {
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-blue-400 rounded-full opacity-20"
+            className="absolute w-2 h-2 bg-cyan-400 rounded-full opacity-20"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
