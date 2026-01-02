@@ -58,13 +58,13 @@ async def create_contact(contact: ContactFormCreate):
 @api_router.get("/services")
 async def get_services():
     """Get all services for public"""
-    services = await db.services.find().sort("order", 1).to_list(100)
+    services = await db.services.find({}, {'_id': 0}).sort("order", 1).to_list(100)
     return services
 
 @api_router.get("/gallery")
 async def get_gallery():
     """Get all gallery items for public"""
-    items = await db.gallery.find().to_list(100)
+    items = await db.gallery.find({}, {'_id': 0}).to_list(100)
     return items
 
 # Include the routers in the main app
