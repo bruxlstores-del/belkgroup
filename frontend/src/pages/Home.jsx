@@ -258,20 +258,13 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center group cursor-pointer">
-              <div className="relative">
-                {/* Animated glow effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 rounded-lg blur-lg opacity-0 group-hover:opacity-75 transition-opacity duration-500 animate-pulse"></div>
-                
-                {/* Logo with multiple animations */}
-                <img 
-                  src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/h2noocde_Design%20sans%20titre.png"
-                  alt="BelkGroup Cleaning Service Logo"
-                  className={`relative h-16 w-auto object-contain transition-all duration-500 
-                    group-hover:scale-110 group-hover:rotate-3 
-                    ${scrollY > 50 ? 'drop-shadow-lg' : 'drop-shadow-2xl'}
-                    animate-float`}
-                />
-              </div>
+              <img 
+                src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/h2noocde_Design%20sans%20titre.png"
+                alt="BelkGroup Cleaning Service Logo"
+                className={`h-16 w-auto object-contain rounded-xl transition-all duration-300 
+                  group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-cyan-500/50
+                  ${scrollY > 50 ? 'drop-shadow-lg' : 'drop-shadow-2xl'}`}
+              />
             </div>
             <div className="hidden md:flex space-x-8">
               {['Nos valeurs', 'Services', 'Réalisations', 'Avis', 'Contact'].map((item, idx) => (
