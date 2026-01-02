@@ -86,14 +86,20 @@ const AdminDashboard = () => {
     try {
       if (service.id) {
         await axios.put(`${API}/admin/services/${service.id}`, service, getAuthHeader());
-        toast({ title: "Service mis à jour" });
+        toast({ title: "Service mis à jour avec succès ✓" });
       } else {
         await axios.post(`${API}/admin/services`, service, getAuthHeader());
-        toast({ title: "Service créé" });
+        toast({ title: "Service créé avec succès ✓" });
       }
-      fetchData();
+      await fetchData(); // Reload data
       setEditingService(null);
       setShowAddService(false);
+      
+      // Notify that changes are live
+      toast({
+        title: "Synchronisation en temps réel",
+        description: "Les changements sont maintenant visibles sur le site public.",
+      });
     } catch (error) {
       toast({
         title: "Erreur",
@@ -108,8 +114,14 @@ const AdminDashboard = () => {
     
     try {
       await axios.delete(`${API}/admin/services/${id}`, getAuthHeader());
-      toast({ title: "Service supprimé" });
-      fetchData();
+      toast({ title: "Service supprimé avec succès ✓" });
+      await fetchData(); // Reload data
+      
+      // Notify that changes are live
+      toast({
+        title: "Synchronisation en temps réel",
+        description: "Les changements sont maintenant visibles sur le site public.",
+      });
     } catch (error) {
       toast({ title: "Erreur", description: "Erreur lors de la suppression", variant: "destructive" });
     }
@@ -120,14 +132,20 @@ const AdminDashboard = () => {
     try {
       if (item.id) {
         await axios.put(`${API}/admin/gallery/${item.id}`, item, getAuthHeader());
-        toast({ title: "Réalisation mise à jour" });
+        toast({ title: "Réalisation mise à jour avec succès ✓" });
       } else {
         await axios.post(`${API}/admin/gallery`, item, getAuthHeader());
-        toast({ title: "Réalisation créée" });
+        toast({ title: "Réalisation créée avec succès ✓" });
       }
-      fetchData();
+      await fetchData(); // Reload data
       setEditingGallery(null);
       setShowAddGallery(false);
+      
+      // Notify that changes are live
+      toast({
+        title: "Synchronisation en temps réel",
+        description: "Les changements sont maintenant visibles sur le site public.",
+      });
     } catch (error) {
       toast({ title: "Erreur", description: "Erreur lors de la sauvegarde", variant: "destructive" });
     }
@@ -138,8 +156,14 @@ const AdminDashboard = () => {
     
     try {
       await axios.delete(`${API}/admin/gallery/${id}`, getAuthHeader());
-      toast({ title: "Réalisation supprimée" });
-      fetchData();
+      toast({ title: "Réalisation supprimée avec succès ✓" });
+      await fetchData(); // Reload data
+      
+      // Notify that changes are live
+      toast({
+        title: "Synchronisation en temps réel",
+        description: "Les changements sont maintenant visibles sur le site public.",
+      });
     } catch (error) {
       toast({ title: "Erreur", description: "Erreur lors de la suppression", variant: "destructive" });
     }
