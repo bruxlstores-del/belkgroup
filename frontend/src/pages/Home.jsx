@@ -488,7 +488,7 @@ const Home = () => {
                   variant={activeFilter === filter ? 'default' : 'outline'}
                   className={`transition-all duration-300 ${
                     activeFilter === filter 
-                      ? 'bg-blue-600 hover:bg-blue-700 scale-110' 
+                      ? 'bg-cyan-600 hover:bg-cyan-700 scale-110' 
                       : 'hover:scale-105'
                   }`}
                 >
