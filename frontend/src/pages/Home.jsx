@@ -106,30 +106,38 @@ const Home = () => {
     }
   ];
 
+  const [sliderPositions, setSliderPositions] = React.useState([50, 50, 50, 50]);
+
+  const handleSliderChange = (index, value) => {
+    const newPositions = [...sliderPositions];
+    newPositions[index] = value;
+    setSliderPositions(newPositions);
+  };
+
   const beforeAfterProjects = [
     {
-      before: "https://images.unsplash.com/photo-1474666488182-66ec723476c6",
-      after: "https://images.unsplash.com/photo-1630699144919-681cf308ae82",
-      title: "Vide maison complet",
-      description: "Maison encombrée transformée en espace vide et propre"
+      before: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800",
+      after: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800",
+      title: "Vide salon - Appartement",
+      description: "Salon encombré transformé en espace lumineux et vide"
     },
     {
-      before: "https://images.unsplash.com/photo-1556866149-a42ffe6478ea",
-      after: "https://images.unsplash.com/photo-1630699376059-b781970715b1",
-      title: "Débarras de bureau",
-      description: "Bureau encombré complètement vidé et nettoyé"
+      before: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800",
+      after: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800",
+      title: "Débarras chambre",
+      description: "Chambre complètement encombrée vidée et nettoyée"
     },
     {
-      before: "https://images.unsplash.com/photo-1516775448597-64ce06b9754e",
-      after: "https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg",
-      title: "Vide appartement - Cuisine",
-      description: "Cuisine encombrée remise à neuf"
+      before: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800",
+      after: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+      title: "Vide grenier complet",
+      description: "Grenier rempli d'objets entièrement débarrassé"
     },
     {
-      before: "https://images.unsplash.com/photo-1611324062122-076b1076c6cc",
-      after: "https://images.unsplash.com/photo-1630699144339-420f59b4747b",
-      title: "Succession - Vide maison",
-      description: "Maison de succession entièrement vidée"
+      before: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800",
+      after: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800",
+      title: "Nettoyage cave",
+      description: "Cave encombrée transformée en espace propre"
     }
   ];
 
