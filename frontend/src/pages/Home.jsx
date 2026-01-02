@@ -524,9 +524,9 @@ const Home = () => {
                   <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
                     <p className="text-white font-bold text-lg mb-2">
                       {img.category === 'before-after' ? 'Avant/Après' :
-                       img.category === 'clearance' ? 'Débarras de maison' : 'Service de nettoyage'}
+                       img.category === 'clearance' ? 'Débarras professionnel' : 'Nettoyage après débarras'}
                     </p>
-                    <p className="text-blue-200 text-sm">Travail professionnel et soigné</p>
+                    <p className="text-blue-200 text-sm">Vide maison et évacuation d'encombrants</p>
                   </div>
                 </div>
               </div>
