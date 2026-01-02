@@ -153,11 +153,23 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toast({
-      title: "Message envoyé!",
-      description: "Nous vous répondrons dans les 24 heures.",
-    });
-    setFormData({ name: '', email: '', phone: '', postalCode: '', subject: '', message: '' });
+    
+    // Send to backend
+    axios.post(`${API}/contact`, formData)
+      .then(() => {
+        toast({
+          title: "Message envoyé!",
+          description: "Nous vous répondrons dans les 24 heures.",
+        });
+        setFormData({ name: '', email: '', phone: '', postalCode: '', subject: '', message: '' });
+      })
+      .catch((error) => {
+        toast({
+          title: "Erreur",
+          description: "Une erreur est survenue. Veuillez réessayer.",
+          variant: "destructive"
+        });
+      });
   };
 
   const values = [
