@@ -695,7 +695,7 @@ const Home = () => {
                   </div>
                 </CardContent>
               </Card>
-              <Card className="bg-gradient-to-br from-blue-500 to-blue-700 text-white">
+              <Card className="bg-gradient-to-br from-cyan-500 to-blue-900 text-white">
                 <CardContent className="p-6">
                   <h4 className="text-xl font-bold mb-4">Horaires d'ouverture</h4>
                   <div className="space-y-2 text-sm">
