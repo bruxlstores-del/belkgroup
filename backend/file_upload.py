@@ -8,8 +8,8 @@ import uuid
 UPLOADS_DIR = Path("/app/backend/uploads")
 UPLOADS_DIR.mkdir(exist_ok=True)
 
-# Static files will be served from this directory
-STATIC_URL = "/uploads"
+# Static files will be served from this URL path
+STATIC_URL = "/api/uploads"
 
 def save_upload_file(upload_file: UploadFile) -> str:
     """Save uploaded file and return the file path"""
