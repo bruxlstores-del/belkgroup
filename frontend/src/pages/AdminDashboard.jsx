@@ -471,10 +471,19 @@ const ServiceForm = ({ service, onSave, onCancel }) => {
 // Service Card Component
 const ServiceCard = ({ service, onEdit, onDelete }) => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-  const imageUrl = service.image?.startsWith('/') ? `${BACKEND_URL}${service.image}` : service.image;
   
-  // Debug log
-  console.log('Service image:', service.image, '-> Full URL:', imageUrl);
+  // Handle both old (/uploads/) and new (/api/uploads/) paths
+  const getImageUrl = (image) => {
+    if (!image) return null;
+    if (image.startsWith('http')) return image;
+    // Convert /uploads/ to /api/uploads/ if needed
+    const normalizedPath = image.startsWith('/uploads/') 
+      ? image.replace('/uploads/', '/api/uploads/') 
+      : image;
+    return `${BACKEND_URL}${normalizedPath}`;
+  };
+  
+  const imageUrl = getImageUrl(service.image);
   
   return (
     <Card>
@@ -486,10 +495,8 @@ const ServiceCard = ({ service, onEdit, onDelete }) => {
               alt={service.title} 
               className="w-32 h-32 object-cover rounded-lg"
               onError={(e) => {
-                console.error('Failed to load image:', imageUrl);
                 e.target.src = 'https://placehold.co/128x128?text=Image';
               }}
-              onLoad={() => console.log('Image loaded successfully:', imageUrl)}
             />
           )}
           <div className="flex-1">
