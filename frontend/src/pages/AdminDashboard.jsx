@@ -473,6 +473,9 @@ const ServiceCard = ({ service, onEdit, onDelete }) => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const imageUrl = service.image?.startsWith('/') ? `${BACKEND_URL}${service.image}` : service.image;
   
+  // Debug log
+  console.log('Service image:', service.image, '-> Full URL:', imageUrl);
+  
   return (
     <Card>
       <CardContent className="p-6">
@@ -483,8 +486,10 @@ const ServiceCard = ({ service, onEdit, onDelete }) => {
               alt={service.title} 
               className="w-32 h-32 object-cover rounded-lg"
               onError={(e) => {
+                console.error('Failed to load image:', imageUrl);
                 e.target.src = 'https://placehold.co/128x128?text=Image';
               }}
+              onLoad={() => console.log('Image loaded successfully:', imageUrl)}
             />
           )}
           <div className="flex-1">
