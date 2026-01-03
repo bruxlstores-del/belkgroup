@@ -70,11 +70,13 @@ Créer un site web moderne et animé pour "BelkGroup", une entreprise spécialis
 ## État Actuel
 - **Statut**: Prêt pour le déploiement
 - **Dernière mise à jour**: 03/01/2025
+- **Email**: Configuré avec Resend (envoi vers belkgroupe@gmail.com)
 
 ## Tâches Restantes
 
 ### P0 - Critique
-- [ ] Configurer l'envoi d'emails (Resend) pour le formulaire de contact
+- [x] Configurer l'envoi d'emails (Resend) pour le formulaire de contact ✅
+- [ ] Vérifier le domaine belkgroup.be sur Resend pour envoyer à info@belkgroup.be
 
 ### P1 - Important
 - [ ] Refactoring de Home.jsx en composants séparés
