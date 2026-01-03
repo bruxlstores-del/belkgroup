@@ -253,7 +253,7 @@ const Home = () => {
         scrollY > 50 ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-28">
+          <div className="flex justify-between items-center h-36">
             <div className="flex items-center group cursor-pointer">
               <img 
                 src="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/sn15g7es_1%20%281%29.png"
