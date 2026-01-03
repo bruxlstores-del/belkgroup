@@ -873,12 +873,12 @@ const Home = () => {
                   </div>
                   <div className="space-y-3 text-base">
                     <div className="flex justify-between items-center bg-white/10 backdrop-blur-sm rounded-xl p-3">
-                      <span className="font-medium">Lundi - Samedi</span>
-                      <span className="font-bold">08:00 – 20:00</span>
+                      <span className="font-medium">Lundi - Vendredi</span>
+                      <span className="font-bold">08:00 – 18:00</span>
                     </div>
                     <div className="flex justify-between items-center bg-white/10 backdrop-blur-sm rounded-xl p-3">
-                      <span className="font-medium">Dimanche</span>
-                      <span className="font-bold">08:00 – 18:00</span>
+                      <span className="font-medium">Samedi</span>
+                      <span className="font-bold">08:00 – 12:00</span>
                     </div>
                   </div>
                   <div className="mt-6 p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
