@@ -73,6 +73,9 @@ async def get_gallery():
 app.include_router(api_router)
 app.include_router(admin_router)
 
+# Mount uploads directory AFTER routers (under /api/uploads for proper Kubernetes routing)
+app.mount("/api/uploads", StaticFiles(directory=str(uploads_dir)), name="uploads")
+
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
