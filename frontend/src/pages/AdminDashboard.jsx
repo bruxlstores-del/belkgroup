@@ -429,8 +429,21 @@ const ServiceForm = ({ service, onSave, onCancel }) => {
           />
           {formData.image && (
             <div className="mt-2">
-              <img src={formData.image.startsWith('/') ? `${BACKEND_URL}${formData.image}` : formData.image} alt="Preview" className="h-32 rounded-lg" />
+              <p className="text-xs text-gray-500 mb-1">Aperçu de l'image :</p>
+              <img 
+                src={formData.image.startsWith('/') ? `${BACKEND_URL}${formData.image}` : formData.image} 
+                alt="Preview" 
+                className="h-32 rounded-lg border"
+                onError={(e) => {
+                  console.error('Image preview failed:', formData.image);
+                  e.target.src = 'https://placehold.co/200x128?text=Erreur+Image';
+                }}
+              />
+              <p className="text-xs text-gray-400 mt-1 truncate max-w-xs">{formData.image}</p>
             </div>
+          )}
+          {!formData.image && (
+            <p className="text-sm text-gray-400 mt-2">Aucune image sélectionnée</p>
           )}
           {uploading && <p className="text-sm text-gray-500">Téléchargement en cours...</p>}
         </div>
