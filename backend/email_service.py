@@ -3,6 +3,12 @@ import asyncio
 import logging
 import resend
 from typing import Dict
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables
+ROOT_DIR = Path(__file__).parent
+load_dotenv(ROOT_DIR / '.env')
 
 logger = logging.getLogger(__name__)
 
@@ -14,6 +20,7 @@ SENDER_EMAIL = "onboarding@resend.dev"
 # Initialize Resend
 if RESEND_API_KEY:
     resend.api_key = RESEND_API_KEY
+    logger.info(f"Resend configured - emails will be sent to {CONTACT_EMAIL}")
 
 async def send_contact_email(contact_data: Dict) -> bool:
     """Send contact form data via Resend email service"""
