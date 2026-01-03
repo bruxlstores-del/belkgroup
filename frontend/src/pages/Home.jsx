@@ -508,7 +508,7 @@ const Home = () => {
                       alt={service.title}
                       className="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-3 transition-all duration-1000"
                       onError={(e) => {
-                        e.target.src = 'https://via.placeholder.com/800x400?text=Service+Image';
+                        e.target.src = 'https://placehold.co/800x400?text=Service+Image';
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent group-hover:from-cyan-900/90 transition-all duration-700"></div>
@@ -587,7 +587,7 @@ const Home = () => {
                     alt={img.title || `Gallery ${idx + 1}`}
                     className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
                     onError={(e) => {
-                      e.target.src = 'https://via.placeholder.com/400x300?text=Image+non+disponible';
+                      e.target.src = 'https://placehold.co/400x300?text=Image+non+disponible';
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-6">

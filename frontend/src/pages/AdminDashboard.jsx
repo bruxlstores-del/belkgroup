@@ -468,7 +468,7 @@ const ServiceCard = ({ service, onEdit, onDelete }) => {
               alt={service.title} 
               className="w-32 h-32 object-cover rounded-lg"
               onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/128x128?text=Image';
+                e.target.src = 'https://placehold.co/128x128?text=Image';
               }}
             />
           )}
@@ -648,7 +648,7 @@ const GalleryCard = ({ item, onEdit, onDelete }) => {
                 alt="Avant" 
                 className="w-24 h-24 object-cover rounded-lg"
                 onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/96x96?text=Avant';
+                  e.target.src = 'https://placehold.co/96x96?text=Avant';
                 }}
               />
             )}
@@ -658,7 +658,7 @@ const GalleryCard = ({ item, onEdit, onDelete }) => {
                 alt="Après" 
                 className="w-24 h-24 object-cover rounded-lg"
                 onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/96x96?text=Apres';
+                  e.target.src = 'https://placehold.co/96x96?text=Apres';
                 }}
               />
             )}
@@ -668,7 +668,7 @@ const GalleryCard = ({ item, onEdit, onDelete }) => {
                 alt={item.title} 
                 className="w-24 h-24 object-cover rounded-lg"
                 onError={(e) => {
-                  e.target.src = 'https://via.placeholder.com/96x96?text=Image';
+                  e.target.src = 'https://placehold.co/96x96?text=Image';
                 }}
               />
             )}
