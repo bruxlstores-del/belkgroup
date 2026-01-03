@@ -40,6 +40,11 @@ uploads_dir.mkdir(exist_ok=True)
 async def root():
     return {"message": "Hello World"}
 
+# Health check endpoint for Kubernetes deployment
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
+
 @api_router.post("/contact")
 async def create_contact(contact: ContactFormCreate):
     """Create contact form submission, save to database and send email"""
