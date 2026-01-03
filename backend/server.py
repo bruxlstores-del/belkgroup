@@ -7,6 +7,7 @@ import os
 import logging
 from pathlib import Path
 from models import ContactFormCreate, ContactForm
+from email_service import send_contact_email
 import uuid
 from datetime import datetime
 
@@ -42,17 +43,20 @@ async def root():
 
 @api_router.post("/contact")
 async def create_contact(contact: ContactFormCreate):
-    """Create contact form submission and save to database"""
+    """Create contact form submission, save to database and send email"""
     contact_dict = contact.dict()
     contact_obj = ContactForm(**contact_dict)
     
     # Save to database
     await db.contacts.insert_one(contact_obj.dict())
     
-    # Log the contact submission
-    logger.info(f"New contact form submission from {contact_dict.get('name')} - {contact_dict.get('email')}")
+    # Send email notification
+    email_sent = await send_contact_email(contact_dict)
     
-    return {"message": "Contact form submitted successfully", "id": contact_obj.id}
+    # Log the contact submission
+    logger.info(f"New contact form submission from {contact_dict.get('name')} - {contact_dict.get('email')} - Email sent: {email_sent}")
+    
+    return {"message": "Contact form submitted successfully", "id": contact_obj.id, "email_sent": email_sent}
 
 @api_router.get("/services")
 async def get_services():
