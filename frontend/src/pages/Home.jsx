@@ -328,9 +328,9 @@ const Home = () => {
               <img 
                 src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/apt2w0ct_Design%20sans%20titre%20%285%29.png"
                 alt="BelkGroup Cleaning Service Logo"
-                className={`h-20 w-auto object-contain rounded-xl transition-all duration-300 
+                className={`h-24 w-auto object-contain rounded-xl transition-all duration-300 p-2
                   group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-cyan-500/50
-                  ${scrollY > 50 ? 'drop-shadow-lg' : 'drop-shadow-2xl'}`}
+                  ${scrollY > 50 ? 'drop-shadow-lg bg-white/90' : 'drop-shadow-2xl'}`}
               />
             </div>
             <div className="hidden md:flex space-x-8">
@@ -361,7 +361,7 @@ const Home = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/7464687/pexels-photo-7464687.jpeg)',
+            backgroundImage: 'url(https://destination-cap-corse.corsica/wp-content/uploads/2023/12/encombrant.jpg)',
             transform: `translateY(${scrollY * 0.5}px)`,
             filter: 'brightness(0.7)'
           }}
@@ -516,7 +516,7 @@ const Home = () => {
               }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1614359835514-92f8ba196357"
+                src="https://passionzen.fr/wp-content/uploads/2024/05/debarras-1.png"
                 alt="BelkGroup Clearing service team"
                 className="rounded-lg shadow-2xl hover:shadow-cyan-300 transition-shadow duration-500"
               />
