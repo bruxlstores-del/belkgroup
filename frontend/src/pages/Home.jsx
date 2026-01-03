@@ -504,7 +504,7 @@ const Home = () => {
                 >
                   <div className="relative h-64 overflow-hidden">
                     <img 
-                      src={service.image?.startsWith('/') ? `${BACKEND_URL}${service.image}` : service.image} 
+                      src={service.image?.startsWith('http') ? service.image : `${BACKEND_URL}${service.image?.startsWith('/uploads/') ? service.image.replace('/uploads/', '/api/uploads/') : service.image}`} 
                       alt={service.title}
                       className="w-full h-full object-cover group-hover:scale-125 group-hover:rotate-3 transition-all duration-1000"
                       onError={(e) => {
