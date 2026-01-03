@@ -253,12 +253,12 @@ const Home = () => {
         scrollY > 50 ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-36">
+          <div className="flex justify-between items-center h-24">
             <div className="flex items-center group cursor-pointer">
               <img 
                 src="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ww2n76fa_Design%20sans%20titre%20%286%29.png"
                 alt="BelkGroup Cleaning Service Logo"
-                className={`h-32 w-auto object-contain transition-all duration-300
+                className={`h-20 w-auto object-contain transition-all duration-300
                   group-hover:scale-110
                   ${scrollY > 50 ? 'drop-shadow-lg' : 'drop-shadow-2xl'}`}
               />
@@ -902,7 +902,7 @@ const Home = () => {
                 <img 
                   src="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ww2n76fa_Design%20sans%20titre%20%286%29.png"
                   alt="BelkGroup Cleaning Service Logo"
-                  className="h-32 w-auto object-contain"
+                  className="h-20 w-auto object-contain"
                 />
               </div>
               <p className="text-gray-400 mb-4">
