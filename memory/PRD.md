@@ -68,7 +68,7 @@ Créer un site web moderne et animé pour "BelkGroup", une entreprise spécialis
 - REACT_APP_BACKEND_URL
 
 ## État Actuel
-- **Statut**: Prêt pour le déploiement
+- **Statut**: ✅ Prêt pour le déploiement
 - **Dernière mise à jour**: 03/01/2025
 - **Email**: Configuré avec Resend (envoi vers belkgroupe@gmail.com)
 
@@ -76,6 +76,8 @@ Créer un site web moderne et animé pour "BelkGroup", une entreprise spécialis
 
 ### P0 - Critique
 - [x] Configurer l'envoi d'emails (Resend) pour le formulaire de contact ✅
+- [x] Corriger le système d'upload d'images ✅
+- [x] Corriger .gitignore pour le déploiement ✅
 - [ ] Vérifier le domaine belkgroup.be sur Resend pour envoyer à info@belkgroup.be
 
 ### P1 - Important
