@@ -328,7 +328,7 @@ const Home = () => {
               <img 
                 src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/apt2w0ct_Design%20sans%20titre%20%285%29.png"
                 alt="BelkGroup Cleaning Service Logo"
-                className={`h-24 w-auto object-contain rounded-xl transition-all duration-300 p-2
+                className={`h-24 w-auto object-contain rounded-xl transition-all duration-300 p-2 mt-2
                   group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-cyan-500/50
                   ${scrollY > 50 ? 'drop-shadow-lg bg-white/90' : 'drop-shadow-2xl'}`}
               />
