@@ -256,7 +256,7 @@ const Home = () => {
           <div className="flex justify-between items-center h-36">
             <div className="flex items-center group cursor-pointer">
               <img 
-                src="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/sn15g7es_1%20%281%29.png"
+                src="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ww2n76fa_Design%20sans%20titre%20%286%29.png"
                 alt="BelkGroup Cleaning Service Logo"
                 className={`h-32 w-auto object-contain transition-all duration-300
                   group-hover:scale-110
@@ -900,7 +900,7 @@ const Home = () => {
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/sn15g7es_1%20%281%29.png"
+                  src="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ww2n76fa_Design%20sans%20titre%20%286%29.png"
                   alt="BelkGroup Cleaning Service Logo"
                   className="h-32 w-auto object-contain"
                 />
