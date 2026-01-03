@@ -323,12 +323,12 @@ const Home = () => {
         scrollY > 50 ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-28">
             <div className="flex items-center group cursor-pointer">
               <img 
                 src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/apt2w0ct_Design%20sans%20titre%20%285%29.png"
                 alt="BelkGroup Cleaning Service Logo"
-                className={`h-24 w-auto object-contain rounded-xl transition-all duration-300 p-2 mt-2
+                className={`h-24 w-auto object-contain rounded-xl transition-all duration-300 p-2
                   group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-cyan-500/50
                   ${scrollY > 50 ? 'drop-shadow-lg bg-white/90' : 'drop-shadow-2xl'}`}
               />
@@ -970,9 +970,9 @@ const Home = () => {
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/h2noocde_Design%20sans%20titre.png"
+                  src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/apt2w0ct_Design%20sans%20titre%20%285%29.png"
                   alt="BelkGroup Cleaning Service Logo"
-                  className="h-16 w-auto object-contain rounded-xl"
+                  className="h-24 w-auto object-contain rounded-xl"
                 />
               </div>
               <p className="text-gray-400 mb-4">
