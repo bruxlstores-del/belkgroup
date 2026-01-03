@@ -27,8 +27,8 @@ def set_db(database):
     db = database
 
 # Admin credentials from environment
-ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'bruxlstores@gmail.com')
-ADMIN_PASSWORD_HASH = hash_password(os.environ.get('ADMIN_PASSWORD', 'SerrarMohamed73@'))
+ADMIN_EMAIL = os.environ['ADMIN_EMAIL']
+ADMIN_PASSWORD_HASH = hash_password(os.environ['ADMIN_PASSWORD'])
 
 async def verify_admin_token(authorization: Optional[str] = Header(None)):
     """Verify admin token from Authorization header"""

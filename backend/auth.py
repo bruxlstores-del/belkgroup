@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-SECRET_KEY = os.environ.get('JWT_SECRET_KEY', 'belkgroup-jwt-secret-2025-production-key-secure-random')
+SECRET_KEY = os.environ['JWT_SECRET_KEY']
 ALGORITHM = 'HS256'
 ACCESS_TOKEN_EXPIRE_MINUTES = 1440  # 24 hours
 
