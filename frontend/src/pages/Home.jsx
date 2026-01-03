@@ -256,7 +256,7 @@ const Home = () => {
           <div className="flex justify-between items-center h-28">
             <div className="flex items-center group cursor-pointer">
               <img 
-                src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/apt2w0ct_Design%20sans%20titre%20%285%29.png"
+                src="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/xltjvxi5_Design%20sans%20titre.svg"
                 alt="BelkGroup Cleaning Service Logo"
                 className={`h-24 w-auto object-contain rounded-xl transition-all duration-300 p-2
                   group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-cyan-500/50
@@ -900,7 +900,7 @@ const Home = () => {
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/apt2w0ct_Design%20sans%20titre%20%285%29.png"
+                  src="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/xltjvxi5_Design%20sans%20titre.svg"
                   alt="BelkGroup Cleaning Service Logo"
                   className="h-24 w-auto object-contain rounded-xl"
                 />
