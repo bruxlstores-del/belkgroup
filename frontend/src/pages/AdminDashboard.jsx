@@ -521,24 +521,26 @@ const GalleryForm = ({ item, onSave, onCancel }) => {
 
     setUploading(true);
     try {
-      const formDataUpload = new FormData();
-      formDataUpload.append('file', file);
+      const uploadData = new FormData();
+      uploadData.append('file', file);
 
       const response = await axios.post(
         `${API}/admin/upload-image`,
-        formDataUpload,
+        uploadData,
         {
-          ...getAuthHeader(),
           headers: {
-            ...getAuthHeader().headers,
+            'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
             'Content-Type': 'multipart/form-data'
           }
         }
       );
 
-      setFormData(prev => ({ ...prev, [field]: response.data.url }));
+      const imageUrl = response.data.url;
+      console.log('Image uploaded:', imageUrl);
+      setFormData(prev => ({ ...prev, [field]: imageUrl }));
       toast({ title: "Image téléchargée avec succès" });
     } catch (error) {
+      console.error('Upload error:', error);
       toast({ title: "Erreur lors du téléchargement", variant: "destructive" });
     } finally {
       setUploading(false);
