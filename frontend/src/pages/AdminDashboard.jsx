@@ -378,24 +378,26 @@ const ServiceForm = ({ service, onSave, onCancel }) => {
 
     setUploading(true);
     try {
-      const formData = new FormData();
-      formData.append('file', file);
+      const uploadData = new FormData();
+      uploadData.append('file', file);
 
       const response = await axios.post(
         `${API}/admin/upload-image`,
-        formData,
+        uploadData,
         {
-          ...getAuthHeader(),
           headers: {
-            ...getAuthHeader().headers,
+            'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
             'Content-Type': 'multipart/form-data'
           }
         }
       );
 
-      setFormData(prev => ({ ...prev, image: response.data.url }));
+      const imageUrl = response.data.url;
+      console.log('Image uploaded:', imageUrl);
+      setFormData(prev => ({ ...prev, image: imageUrl }));
       toast({ title: "Image téléchargée avec succès" });
     } catch (error) {
+      console.error('Upload error:', error);
       toast({ title: "Erreur lors du téléchargement", variant: "destructive" });
     } finally {
       setUploading(false);
