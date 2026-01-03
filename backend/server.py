@@ -7,7 +7,6 @@ import os
 import logging
 from pathlib import Path
 from models import ContactFormCreate, ContactForm
-from email_service import send_contact_email
 import uuid
 from datetime import datetime
 
