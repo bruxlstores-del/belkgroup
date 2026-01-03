@@ -326,9 +326,9 @@ const Home = () => {
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center group cursor-pointer">
               <img 
-                src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/h2noocde_Design%20sans%20titre.png"
+                src="https://customer-assets.emergentagent.com/job_belk-evolved/artifacts/apt2w0ct_Design%20sans%20titre%20%285%29.png"
                 alt="BelkGroup Cleaning Service Logo"
-                className={`h-16 w-auto object-contain rounded-xl transition-all duration-300 
+                className={`h-20 w-auto object-contain rounded-xl transition-all duration-300 
                   group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-cyan-500/50
                   ${scrollY > 50 ? 'drop-shadow-lg' : 'drop-shadow-2xl'}`}
               />
@@ -361,7 +361,7 @@ const Home = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1581573833610-487d80de9aab)',
+            backgroundImage: 'url(https://images.pexels.com/photos/7464687/pexels-photo-7464687.jpeg)',
             transform: `translateY(${scrollY * 0.5}px)`,
             filter: 'brightness(0.7)'
           }}
