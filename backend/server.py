@@ -43,15 +43,15 @@ async def root():
 
 @api_router.post("/contact")
 async def create_contact(contact: ContactFormCreate):
-    """Create contact form submission and send email"""
+    """Create contact form submission and save to database"""
     contact_dict = contact.dict()
     contact_obj = ContactForm(**contact_dict)
     
     # Save to database
     await db.contacts.insert_one(contact_obj.dict())
     
-    # Send email
-    send_contact_email(contact_dict)
+    # Log the contact submission
+    logger.info(f"New contact form submission from {contact_dict.get('name')} - {contact_dict.get('email')}")
     
     return {"message": "Contact form submitted successfully", "id": contact_obj.id}
 
