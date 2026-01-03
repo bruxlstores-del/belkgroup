@@ -52,8 +52,56 @@ services_data = [
     }
 ]
 
-async def init_services():
-    print("Initializing services in database...")
+gallery_data = [
+    {
+        "id": str(uuid.uuid4()),
+        "title": "Débarras hangar complet",
+        "description": "Avant/Après - Hangar vidé entièrement",
+        "category": "before-after",
+        "image": "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/f6qezot8_AA3.webp",
+        "created_at": datetime.utcnow(),
+        "updated_at": datetime.utcnow()
+    },
+    {
+        "id": str(uuid.uuid4()),
+        "title": "Débarras garage",
+        "description": "Avant/Après - Garage débarrassé",
+        "category": "before-after",
+        "image": "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/w82wr8bb_13.jpg",
+        "created_at": datetime.utcnow(),
+        "updated_at": datetime.utcnow()
+    },
+    {
+        "id": str(uuid.uuid4()),
+        "title": "Débarras atelier",
+        "description": "Avant/Après - Atelier entièrement vidé",
+        "category": "before-after",
+        "image": "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ki46kgfw_debarras-garage-pessac.webp",
+        "created_at": datetime.utcnow(),
+        "updated_at": datetime.utcnow()
+    },
+    {
+        "id": str(uuid.uuid4()),
+        "title": "Vide appartement",
+        "description": "Avant/Après - Appartement vidé et nettoyé",
+        "category": "before-after",
+        "image": "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/amfvggpz_debarras-pessac.webp",
+        "created_at": datetime.utcnow(),
+        "updated_at": datetime.utcnow()
+    },
+    {
+        "id": str(uuid.uuid4()),
+        "title": "Vide maison",
+        "description": "Avant/Après - Maison complètement vidée",
+        "category": "before-after",
+        "image": "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/2bahhtus_avant-apres-1024x801.jpg",
+        "created_at": datetime.utcnow(),
+        "updated_at": datetime.utcnow()
+    }
+]
+
+async def init_data():
+    print("Initializing data in database...")
     
     # Clear existing services
     await db.services.delete_many({})
@@ -63,14 +111,28 @@ async def init_services():
     result = await db.services.insert_many(services_data)
     print(f"Inserted {len(result.inserted_ids)} services")
     
-    # Verify
+    # Clear existing gallery items
+    await db.gallery.delete_many({})
+    print("Cleared existing gallery items")
+    
+    # Insert new gallery items
+    result = await db.gallery.insert_many(gallery_data)
+    print(f"Inserted {len(result.inserted_ids)} gallery items")
+    
+    # Verify services
     services = await db.services.find().to_list(100)
     print(f"\nServices in database:")
     for service in services:
         print(f"  - {service['title']}")
     
-    print("\nServices initialization complete!")
+    # Verify gallery
+    gallery = await db.gallery.find().to_list(100)
+    print(f"\nGallery items in database:")
+    for item in gallery:
+        print(f"  - {item['title']} ({item['category']})")
+    
+    print("\nData initialization complete!")
     client.close()
 
 if __name__ == "__main__":
-    asyncio.run(init_services())
+    asyncio.run(init_data())
