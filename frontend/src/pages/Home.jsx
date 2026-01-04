@@ -569,8 +569,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section id="réalisations" className="py-20 bg-white relative z-10">
+      {/* Gallery Section - Modern Slider */}
+      <section id="réalisations" className="py-20 bg-gradient-to-b from-gray-50 to-white relative z-10 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 
@@ -583,54 +583,170 @@ const Home = () => {
             >
               Nos Réalisations
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-700 mx-auto mb-4"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto">Découvrez nos travaux de débarras et vide maison réalisés avec professionnalisme</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {loading ? (
-              // Loading skeleton
-              [...Array(6)].map((_, idx) => (
-                <div key={idx} className="h-64 bg-gray-200 rounded-lg animate-pulse"></div>
-              ))
-            ) : galleryItems.length === 0 ? (
-              <div className="col-span-full text-center py-12">
-                <p className="text-gray-500">Aucune réalisation disponible</p>
-              </div>
-            ) : (
-              galleryItems.map((img, idx) => (
-                <div 
-                  key={idx} 
-                  className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 h-72 transform hover:scale-[1.02] cursor-pointer"
-                  style={{
-                    transform: scrollY > 2900 ? 'translateY(0)' : 'translateY(60px)',
-                    opacity: scrollY > 2900 ? 1 : 0,
-                    transition: `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${idx * 0.15}s`
-                  }}
+
+          {loading ? (
+            <div className="h-96 bg-gray-200 rounded-2xl animate-pulse"></div>
+          ) : galleryItems.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-500">Aucune réalisation disponible</p>
+            </div>
+          ) : (
+            <div className="relative">
+              {/* Main Slider */}
+              <div className="relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden shadow-2xl">
+                {galleryItems.map((img, idx) => {
+                  const imageUrl = img.url || img.image || img.image_after || img.image_before;
+                  const fullImageUrl = imageUrl?.startsWith('http') ? imageUrl : `${BACKEND_URL}${imageUrl?.startsWith('/uploads/') ? imageUrl.replace('/uploads/', '/api/uploads/') : imageUrl}`;
+                  
+                  return (
+                    <div
+                      key={idx}
+                      className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                        idx === currentSlide 
+                          ? 'opacity-100 scale-100 z-10' 
+                          : idx === (currentSlide - 1 + galleryItems.length) % galleryItems.length
+                            ? 'opacity-0 scale-95 -translate-x-full z-0'
+                            : 'opacity-0 scale-95 translate-x-full z-0'
+                      }`}
+                    >
+                      <img 
+                        src={fullImageUrl}
+                        alt={img.title || `Réalisation ${idx + 1}`}
+                        className="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-700"
+                        onClick={() => openZoom(fullImageUrl)}
+                        onError={(e) => {
+                          e.target.src = 'https://placehold.co/800x600?text=Image';
+                        }}
+                      />
+                      {/* Gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                      
+                      {/* Image info */}
+                      <div className="absolute bottom-0 left-0 right-0 p-8">
+                        <h3 className="text-white text-2xl md:text-3xl font-bold mb-2 drop-shadow-lg">
+                          {img.title || 'Réalisation BelkGroup'}
+                        </h3>
+                        {img.description && (
+                          <p className="text-white/80 text-lg drop-shadow-md">{img.description}</p>
+                        )}
+                      </div>
+
+                      {/* Zoom button */}
+                      <button 
+                        onClick={() => openZoom(fullImageUrl)}
+                        className="absolute top-6 right-6 w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/40 transition-all duration-300 hover:scale-110"
+                      >
+                        <ZoomIn className="w-6 h-6 text-white" />
+                      </button>
+                    </div>
+                  );
+                })}
+
+                {/* Navigation arrows */}
+                <button 
+                  onClick={() => { prevSlide(); setIsAutoPlaying(false); setTimeout(() => setIsAutoPlaying(true), 5000); }}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/40 transition-all duration-300 hover:scale-110 group"
                 >
-                  <img 
-                    src={img.url || img.image || img.image_after || img.image_before} 
-                    alt={img.title || `Réalisation ${idx + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
-                    onError={(e) => {
-                      e.target.src = 'https://placehold.co/400x300?text=Image+non+disponible';
-                    }}
+                  <ChevronLeft className="w-8 h-8 text-white group-hover:-translate-x-1 transition-transform" />
+                </button>
+                <button 
+                  onClick={() => { nextSlide(); setIsAutoPlaying(false); setTimeout(() => setIsAutoPlaying(true), 5000); }}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/40 transition-all duration-300 hover:scale-110 group"
+                >
+                  <ChevronRight className="w-8 h-8 text-white group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
+
+              {/* Thumbnails */}
+              <div className="flex justify-center gap-3 mt-6 flex-wrap">
+                {galleryItems.map((img, idx) => {
+                  const imageUrl = img.url || img.image || img.image_after || img.image_before;
+                  const fullImageUrl = imageUrl?.startsWith('http') ? imageUrl : `${BACKEND_URL}${imageUrl?.startsWith('/uploads/') ? imageUrl.replace('/uploads/', '/api/uploads/') : imageUrl}`;
+                  
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => goToSlide(idx)}
+                      className={`relative w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden transition-all duration-300 ${
+                        idx === currentSlide 
+                          ? 'ring-4 ring-cyan-500 scale-110 shadow-lg' 
+                          : 'opacity-60 hover:opacity-100 hover:scale-105'
+                      }`}
+                    >
+                      <img 
+                        src={fullImageUrl}
+                        alt={`Thumbnail ${idx + 1}`}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.target.src = 'https://placehold.co/100x100?text=...';
+                        }}
+                      />
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Progress dots */}
+              <div className="flex justify-center gap-2 mt-6">
+                {galleryItems.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => goToSlide(idx)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      idx === currentSlide 
+                        ? 'w-8 bg-cyan-500' 
+                        : 'w-2 bg-gray-300 hover:bg-gray-400'
+                    }`}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                    <p className="text-white font-semibold text-lg drop-shadow-lg">
-                      {img.title || 'Réalisation BelkGroup'}
-                    </p>
-                  </div>
-                  <div className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-0 group-hover:scale-100">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                    </svg>
-                  </div>
-                </div>
-              ))
-            )}
-          </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
+
+      {/* Zoom Modal */}
+      {isZoomed && zoomedImage && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+          onClick={closeZoom}
+        >
+          <button 
+            onClick={closeZoom}
+            className="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 z-50"
+          >
+            <X className="w-8 h-8 text-white" />
+          </button>
+          
+          <button 
+            onClick={(e) => { e.stopPropagation(); prevSlide(); }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-50 w-14 h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300"
+          >
+            <ChevronLeft className="w-8 h-8 text-white" />
+          </button>
+          
+          <button 
+            onClick={(e) => { e.stopPropagation(); nextSlide(); }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-50 w-14 h-14 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300"
+          >
+            <ChevronRight className="w-8 h-8 text-white" />
+          </button>
+
+          <img 
+            src={zoomedImage}
+            alt="Zoomed"
+            className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl animate-in zoom-in-95 duration-300"
+            onClick={(e) => e.stopPropagation()}
+          />
+          
+          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-sm">
+            Cliquez en dehors de l'image ou sur ✕ pour fermer
+          </p>
+        </div>
+      )}
 
       {/* Reviews Section */}
       <section id="avis" className="py-20 bg-gradient-to-b from-gray-50 to-white relative z-10">
