@@ -161,8 +161,6 @@ const Home = () => {
     }
   ];
 
-  const filteredGallery = activeFilter === 'all' ? galleryItems : galleryItems.filter(img => img.category === activeFilter);
-
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Professional Background Image */}
