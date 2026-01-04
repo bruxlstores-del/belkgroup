@@ -596,7 +596,7 @@ const Home = () => {
           ) : (
             <div className="relative">
               {/* Main Slider */}
-              <div className="relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden shadow-2xl bg-gray-900">
                 {galleryItems.map((img, idx) => {
                   const imageUrl = img.url || img.image || img.image_after || img.image_before;
                   const fullImageUrl = imageUrl?.startsWith('http') ? imageUrl : `${BACKEND_URL}${imageUrl?.startsWith('/uploads/') ? imageUrl.replace('/uploads/', '/api/uploads/') : imageUrl}`;
@@ -606,10 +606,8 @@ const Home = () => {
                       key={idx}
                       className={`absolute inset-0 transition-all duration-700 ease-in-out ${
                         idx === currentSlide 
-                          ? 'opacity-100 scale-100 z-10' 
-                          : idx === (currentSlide - 1 + galleryItems.length) % galleryItems.length
-                            ? 'opacity-0 scale-95 -translate-x-full z-0'
-                            : 'opacity-0 scale-95 translate-x-full z-0'
+                          ? 'opacity-100 visible z-10' 
+                          : 'opacity-0 invisible z-0'
                       }`}
                     >
                       <img 
