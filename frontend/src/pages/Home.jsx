@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
-import { Phone, Mail, MapPin, Star, CheckCircle, Recycle, Clock, Award, ArrowRight, Trash2, Home as HomeIcon, Sparkles, ArrowUp } from 'lucide-react';
+import { Phone, Mail, MapPin, Star, CheckCircle, Recycle, Clock, Award, ArrowRight, Trash2, Home as HomeIcon, Sparkles, ArrowUp, ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
 import { toast } from '../hooks/use-toast';
 import axios from 'axios';
 
