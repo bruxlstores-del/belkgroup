@@ -542,24 +542,6 @@ const Home = () => {
               Nos Réalisations
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mb-8"></div>
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              {['all', 'before-after', 'clearance', 'vide-maison'].map((filter) => (
-                <Button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  variant={activeFilter === filter ? 'default' : 'outline'}
-                  className={`transition-all duration-300 ${
-                    activeFilter === filter 
-                      ? 'bg-cyan-600 hover:bg-cyan-700 scale-110' 
-                      : 'hover:scale-105'
-                  }`}
-                >
-                  {filter === 'all' ? 'Tout voir' : 
-                   filter === 'before-after' ? 'Avant/Après' :
-                   filter === 'clearance' ? 'Débarras' : 'Vide maison'}
-                </Button>
-              ))}
-            </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {loading ? (
@@ -567,39 +549,39 @@ const Home = () => {
               [...Array(6)].map((_, idx) => (
                 <div key={idx} className="h-64 bg-gray-200 rounded-lg animate-pulse"></div>
               ))
-            ) : filteredGallery.length === 0 ? (
+            ) : galleryItems.length === 0 ? (
               <div className="col-span-full text-center py-12">
-                <p className="text-gray-500">Aucune réalisation dans cette catégorie</p>
+                <p className="text-gray-500">Aucune réalisation disponible</p>
               </div>
             ) : (
-              filteredGallery.map((img, idx) => (
+              galleryItems.map((img, idx) => (
                 <div 
                   key={idx} 
-                  className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-500 h-64 transform hover:scale-105"
+                  className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-700 h-72 transform hover:scale-[1.02] cursor-pointer"
                   style={{
-                    transform: scrollY > 2900 ? 'translateY(0) rotate(0deg)' : 'translateY(60px) rotate(-2deg)',
+                    transform: scrollY > 2900 ? 'translateY(0)' : 'translateY(60px)',
                     opacity: scrollY > 2900 ? 1 : 0,
-                    transition: `all 0.6s ease-out ${idx * 0.1}s`
+                    transition: `all 0.8s cubic-bezier(0.4, 0, 0.2, 1) ${idx * 0.15}s`
                   }}
                 >
                   <img 
                     src={img.url || img.image || img.image_after || img.image_before} 
-                    alt={img.title || `Gallery ${idx + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
+                    alt={img.title || `Réalisation ${idx + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
                     onError={(e) => {
                       e.target.src = 'https://placehold.co/400x300?text=Image+non+disponible';
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/90 via-blue-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-6">
-                    <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                      <p className="text-white font-bold text-lg mb-2">
-                        {img.category === 'before-after' ? 'Avant/Après' :
-                         img.category === 'clearance' ? 'Débarras professionnel' : 'Vide maison complet'}
-                      </p>
-                      <p className="text-blue-200 text-sm">
-                        {img.title || 'Vide maison et évacuation d\'encombrants'}
-                      </p>
-                    </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                    <p className="text-white font-semibold text-lg drop-shadow-lg">
+                      {img.title || 'Réalisation BelkGroup'}
+                    </p>
+                  </div>
+                  <div className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 transform scale-0 group-hover:scale-100">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
                   </div>
                 </div>
               ))
@@ -855,8 +837,8 @@ const Home = () => {
                     </div>
                     <div>
                       <p className="font-bold text-gray-900 mb-1 text-lg">Email</p>
-                      <a href="mailto:belkgroupe@gmail.com" className="text-cyan-600 hover:text-cyan-700 font-semibold">
-                        belkgroupe@gmail.com
+                      <a href="mailto:info@belkgroup.be" className="text-cyan-600 hover:text-cyan-700 font-semibold">
+                        info@belkgroup.be
                       </a>
                     </div>
                   </div>
