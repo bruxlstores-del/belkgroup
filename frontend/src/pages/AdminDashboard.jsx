@@ -625,59 +625,40 @@ const GalleryForm = ({ item, onSave, onCancel }) => {
   );
 };
 
-// Gallery Card Component
+// Gallery Card Component - Simplified without categories
 const GalleryCard = ({ item, onEdit, onDelete }) => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   
   const getImageUrl = (url) => {
-    return url?.startsWith('/') ? `${BACKEND_URL}${url}` : url;
+    if (!url) return null;
+    if (url.startsWith('http')) return url;
+    const normalizedPath = url.startsWith('/uploads/') 
+      ? url.replace('/uploads/', '/api/uploads/') 
+      : url;
+    return `${BACKEND_URL}${normalizedPath}`;
   };
   
+  const imageUrl = item.image || item.image_after || item.image_before;
+  
   return (
-    <Card>
-      <CardContent className="p-6">
+    <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+      <CardContent className="p-4">
         <div className="flex gap-4">
-          <div className="flex gap-2">
-            {item.image_before && (
-              <img 
-                src={getImageUrl(item.image_before)} 
-                alt="Avant" 
-                className="w-24 h-24 object-cover rounded-lg"
-                onError={(e) => {
-                  e.target.src = 'https://placehold.co/96x96?text=Avant';
-                }}
-              />
-            )}
-            {item.image_after && (
-              <img 
-                src={getImageUrl(item.image_after)} 
-                alt="Après" 
-                className="w-24 h-24 object-cover rounded-lg"
-                onError={(e) => {
-                  e.target.src = 'https://placehold.co/96x96?text=Apres';
-                }}
-              />
-            )}
-            {item.image && (
-              <img 
-                src={getImageUrl(item.image)} 
-                alt={item.title} 
-                className="w-24 h-24 object-cover rounded-lg"
-                onError={(e) => {
-                  e.target.src = 'https://placehold.co/96x96?text=Image';
-                }}
-              />
-            )}
-          </div>
+          {imageUrl && (
+            <img 
+              src={getImageUrl(imageUrl)} 
+              alt={item.title || 'Photo'} 
+              className="w-32 h-32 object-cover rounded-lg"
+              onError={(e) => {
+                e.target.src = 'https://placehold.co/128x128?text=Image';
+              }}
+            />
+          )}
           <div className="flex-1">
-            <div className="flex items-center gap-2 mb-2">
-              <h3 className="text-xl font-bold">{item.title}</h3>
-              <span className="text-xs bg-cyan-100 text-cyan-700 px-2 py-1 rounded-full">
-                {item.category === 'before-after' ? 'Avant/Après' : 
-                 item.category === 'clearance' ? 'Débarras' : 'Vide maison'}
-              </span>
-            </div>
-            <p className="text-gray-600 mb-4">{item.description}</p>
+            <h3 className="text-lg font-bold mb-1">{item.title || 'Sans titre'}</h3>
+            {item.description && (
+              <p className="text-gray-600 text-sm mb-3">{item.description}</p>
+            )}
             <div className="flex gap-2">
               <Button onClick={onEdit} variant="outline" size="sm" className="gap-2">
                 <Edit2 className="w-4 h-4" />
