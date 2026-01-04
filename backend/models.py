@@ -32,9 +32,9 @@ class ServiceUpdate(BaseModel):
 
 class GalleryItem(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    title: str
-    description: str
-    category: str  # 'before-after', 'clearance', 'vide-maison'
+    title: Optional[str] = None
+    description: Optional[str] = None
+    category: Optional[str] = None
     image_before: Optional[str] = None
     image_after: Optional[str] = None
     image: Optional[str] = None
@@ -42,9 +42,9 @@ class GalleryItem(BaseModel):
     updated_at: datetime = Field(default_factory=datetime.utcnow)
 
 class GalleryItemCreate(BaseModel):
-    title: str
-    description: str
-    category: str
+    title: Optional[str] = None
+    description: Optional[str] = None
+    category: Optional[str] = None
     image_before: Optional[str] = None
     image_after: Optional[str] = None
     image: Optional[str] = None
