@@ -517,14 +517,11 @@ const ServiceCard = ({ service, onEdit, onDelete }) => {
   );
 };
 
-// Gallery Form Component
+// Gallery Form Component - Simplified without categories
 const GalleryForm = ({ item, onSave, onCancel }) => {
   const [formData, setFormData] = useState(item || {
     title: '',
     description: '',
-    category: 'clearance',
-    image_before: '',
-    image_after: '',
     image: ''
   });
   const [uploading, setUploading] = useState(false);
@@ -532,13 +529,7 @@ const GalleryForm = ({ item, onSave, onCancel }) => {
   const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
   const API = `${BACKEND_URL}/api`;
 
-  const getAuthHeader = () => ({
-    headers: {
-      'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
-    }
-  });
-
-  const handleImageUpload = async (e, field) => {
+  const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
@@ -560,7 +551,7 @@ const GalleryForm = ({ item, onSave, onCancel }) => {
 
       const imageUrl = response.data.url;
       console.log('Image uploaded:', imageUrl);
-      setFormData(prev => ({ ...prev, [field]: imageUrl }));
+      setFormData(prev => ({ ...prev, image: imageUrl }));
       toast({ title: "Image téléchargée avec succès" });
     } catch (error) {
       console.error('Upload error:', error);
@@ -570,76 +561,54 @@ const GalleryForm = ({ item, onSave, onCancel }) => {
     }
   };
 
+  const getImageUrl = (url) => {
+    if (!url) return null;
+    if (url.startsWith('http')) return url;
+    const normalizedPath = url.startsWith('/uploads/') 
+      ? url.replace('/uploads/', '/api/uploads/') 
+      : url;
+    return `${BACKEND_URL}${normalizedPath}`;
+  };
+
   return (
     <Card className="border-2 border-cyan-500">
       <CardContent className="p-6 space-y-4">
         <Input
-          placeholder="Titre"
+          placeholder="Titre (optionnel)"
           value={formData.title}
           onChange={(e) => setFormData({ ...formData, title: e.target.value })}
         />
         <Textarea
-          placeholder="Description"
+          placeholder="Description (optionnel)"
           value={formData.description}
           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
           rows={2}
         />
-        <select
-          value={formData.category}
-          onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-          className="w-full h-10 px-3 rounded-md border border-gray-200"
-        >
-          <option value="before-after">Avant/Après</option>
-          <option value="clearance">Débarras</option>
-          <option value="vide-maison">Vide maison</option>
-        </select>
         
-        {formData.category === 'before-after' ? (
-          <>
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">Image AVANT</label>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => handleImageUpload(e, 'image_before')}
-                className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100"
-                disabled={uploading}
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-700">Photo</label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+            className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100"
+            disabled={uploading}
+          />
+          {formData.image && (
+            <div className="mt-2">
+              <img 
+                src={getImageUrl(formData.image)} 
+                alt="Preview" 
+                className="h-32 rounded-lg border"
+                onError={(e) => {
+                  e.target.src = 'https://placehold.co/200x128?text=Erreur+Image';
+                }}
               />
-              {formData.image_before && (
-                <img src={formData.image_before.startsWith('/') ? `${BACKEND_URL}${formData.image_before}` : formData.image_before} alt="Avant" className="h-24 rounded-lg" />
-              )}
             </div>
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">Image APRÈS</label>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={(e) => handleImageUpload(e, 'image_after')}
-                className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100"
-                disabled={uploading}
-              />
-              {formData.image_after && (
-                <img src={formData.image_after.startsWith('/') ? `${BACKEND_URL}${formData.image_after}` : formData.image_after} alt="Après" className="h-24 rounded-lg" />
-              )}
-            </div>
-          </>
-        ) : (
-          <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-700">Image</label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => handleImageUpload(e, 'image')}
-              className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-cyan-50 file:text-cyan-700 hover:file:bg-cyan-100"
-              disabled={uploading}
-            />
-            {formData.image && (
-              <img src={formData.image.startsWith('/') ? `${BACKEND_URL}${formData.image}` : formData.image} alt="Preview" className="h-24 rounded-lg" />
-            )}
-          </div>
-        )}
+          )}
+        </div>
         
-        {uploading && <p className="text-sm text-gray-500">Téléchargement en cours...</p>}
+        {uploading && <p className="text-sm text-cyan-600 animate-pulse">Téléchargement en cours...</p>}
         
         <div className="flex gap-2">
           <Button onClick={() => onSave(formData)} className="bg-cyan-600 hover:bg-cyan-700 gap-2" disabled={uploading}>
