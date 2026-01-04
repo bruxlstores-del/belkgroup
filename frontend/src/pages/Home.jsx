@@ -167,6 +167,45 @@ const Home = () => {
     }
   ];
 
+  // Gallery slider functions
+  const nextSlide = useCallback(() => {
+    if (galleryItems.length > 0) {
+      setCurrentSlide((prev) => (prev + 1) % galleryItems.length);
+    }
+  }, [galleryItems.length]);
+
+  const prevSlide = useCallback(() => {
+    if (galleryItems.length > 0) {
+      setCurrentSlide((prev) => (prev - 1 + galleryItems.length) % galleryItems.length);
+    }
+  }, [galleryItems.length]);
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(true), 5000);
+  };
+
+  const openZoom = (image) => {
+    setZoomedImage(image);
+    setIsZoomed(true);
+    setIsAutoPlaying(false);
+  };
+
+  const closeZoom = () => {
+    setIsZoomed(false);
+    setZoomedImage(null);
+    setIsAutoPlaying(true);
+  };
+
+  // Auto-play slider
+  useEffect(() => {
+    if (isAutoPlaying && galleryItems.length > 1) {
+      const interval = setInterval(nextSlide, 4000);
+      return () => clearInterval(interval);
+    }
+  }, [isAutoPlaying, galleryItems.length, nextSlide]);
+
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
       {/* Professional Background Image */}
