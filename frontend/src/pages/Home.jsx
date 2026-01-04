@@ -25,6 +25,12 @@ const Home = () => {
   const [services, setServices] = useState([]);
   const [galleryItems, setGalleryItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  // Gallery slider states
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [zoomedImage, setZoomedImage] = useState(null);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
