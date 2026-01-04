@@ -19,7 +19,6 @@ const Home = () => {
     subject: '',
     message: ''
   });
-  const [activeFilter, setActiveFilter] = useState('all');
   const [scrollY, setScrollY] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
