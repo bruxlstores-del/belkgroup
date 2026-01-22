@@ -643,8 +643,7 @@ const Home = () => {
               {/* Main Slider */}
               <div className="relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden shadow-2xl bg-gray-900">
                 {galleryItems.map((img, idx) => {
-                  const imageUrl = img.url || img.image || img.image_after || img.image_before;
-                  const fullImageUrl = imageUrl?.startsWith('http') ? imageUrl : `${BACKEND_URL}${imageUrl?.startsWith('/uploads/') ? imageUrl.replace('/uploads/', '/api/uploads/') : imageUrl}`;
+                  const imageUrl = img.image;
                   
                   return (
                     <div
@@ -656,10 +655,10 @@ const Home = () => {
                       }`}
                     >
                       <img 
-                        src={fullImageUrl}
+                        src={imageUrl}
                         alt={img.title || `Réalisation ${idx + 1}`}
                         className="w-full h-full object-cover cursor-pointer hover:scale-105 transition-transform duration-700"
-                        onClick={() => openZoom(fullImageUrl)}
+                        onClick={() => openZoom(imageUrl)}
                         onError={(e) => {
                           e.target.src = 'https://placehold.co/800x600?text=Image';
                         }}
