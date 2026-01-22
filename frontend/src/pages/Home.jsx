@@ -705,8 +705,7 @@ const Home = () => {
               {/* Thumbnails */}
               <div className="flex justify-center gap-3 mt-6 flex-wrap">
                 {galleryItems.map((img, idx) => {
-                  const imageUrl = img.url || img.image || img.image_after || img.image_before;
-                  const fullImageUrl = imageUrl?.startsWith('http') ? imageUrl : `${BACKEND_URL}${imageUrl?.startsWith('/uploads/') ? imageUrl.replace('/uploads/', '/api/uploads/') : imageUrl}`;
+                  const imageUrl = img.image;
                   
                   return (
                     <button
@@ -719,7 +718,7 @@ const Home = () => {
                       }`}
                     >
                       <img 
-                        src={fullImageUrl}
+                        src={imageUrl}
                         alt={`Thumbnail ${idx + 1}`}
                         className="w-full h-full object-cover"
                         onError={(e) => {
