@@ -1,43 +1,150 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="A product of emergent.sh" />
-        <!--
-        manifest.json provides metadata used when your web app is installed on a
-        user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-        -->
-        <!--
-        Notice the use of %PUBLIC_URL% in the tags above.
-        It will be replaced with the URL of the `public` folder during the build.
-        Only files inside the `public` folder can be referenced from the HTML.
-
-        Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-        work correctly both with client-side routing and a non-root public URL.
-        Learn how to configure a non-root public URL by running `npm run build`.
-        -->
-        <title>BelkGroup | Services Pro</title>
+        <meta name="theme-color" content="#06b6d4" />
+        
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="BelkGroup - Service professionnel de débarras d'encombrants, vide maison, vide cave et grenier en Belgique. Intervention rapide à Bruxelles et environs. Devis gratuit. TVA: BE 0728 836 818" />
+        <meta name="keywords" content="débarras, vide maison, vide cave, vide grenier, encombrants, débarras Bruxelles, débarras Belgique, évacuation meubles, nettoyage maison, débarras professionnel, BelkGroup, déménagement, succession, rénovation, débarras bureau, documents confidentiels, déchetterie" />
+        <meta name="author" content="BelkGroup" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="French" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="geo.region" content="BE" />
+        <meta name="geo.placename" content="Bruxelles" />
+        
+        <!-- Canonical URL -->
+        <link rel="canonical" href="https://belkgroup.be" />
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://belkgroup.be" />
+        <meta property="og:title" content="BelkGroup | Débarras & Vide Maison Professionnel en Belgique" />
+        <meta property="og:description" content="Service professionnel de débarras d'encombrants, vide maison, vide cave et grenier. Intervention rapide à Bruxelles et environs. Devis gratuit." />
+        <meta property="og:image" content="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ww2n76fa_Design%20sans%20titre%20%286%29.png" />
+        <meta property="og:locale" content="fr_BE" />
+        <meta property="og:site_name" content="BelkGroup" />
+        
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://belkgroup.be" />
+        <meta name="twitter:title" content="BelkGroup | Débarras & Vide Maison Professionnel" />
+        <meta name="twitter:description" content="Service professionnel de débarras d'encombrants, vide maison, vide cave et grenier en Belgique. Devis gratuit." />
+        <meta name="twitter:image" content="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ww2n76fa_Design%20sans%20titre%20%286%29.png" />
+        
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" sizes="32x32" href="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ww2n76fa_Design%20sans%20titre%20%286%29.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ww2n76fa_Design%20sans%20titre%20%286%29.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ww2n76fa_Design%20sans%20titre%20%286%29.png" />
+        <link rel="shortcut icon" href="https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ww2n76fa_Design%20sans%20titre%20%286%29.png" />
+        
+        <title>BelkGroup | Débarras & Vide Maison Professionnel en Belgique</title>
+        
+        <!-- Structured Data / JSON-LD -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "BelkGroup",
+            "description": "Service professionnel de débarras d'encombrants, vide maison, vide cave et grenier en Belgique",
+            "url": "https://belkgroup.be",
+            "logo": "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ww2n76fa_Design%20sans%20titre%20%286%29.png",
+            "image": "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ww2n76fa_Design%20sans%20titre%20%286%29.png",
+            "telephone": "+32470123456",
+            "email": "info@belkgroup.be",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bruxelles",
+                "addressRegion": "Bruxelles-Capitale",
+                "addressCountry": "BE"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "50.8503",
+                "longitude": "4.3517"
+            },
+            "areaServed": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "50.8503",
+                    "longitude": "4.3517"
+                },
+                "geoRadius": "50000"
+            },
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "08:00",
+                    "closes": "18:00"
+                },
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": "Saturday",
+                    "opens": "08:00",
+                    "closes": "12:00"
+                }
+            ],
+            "priceRange": "€€",
+            "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+            "currenciesAccepted": "EUR",
+            "vatID": "BE 0728 836 818",
+            "sameAs": [
+                "https://www.facebook.com/profile.php?id=100069437707737",
+                "https://www.instagram.com/belkgroup"
+            ],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Services de débarras",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Débarras d'encombrants",
+                            "description": "Enlèvement rapide de meubles, électroménagers, matelas et cartons"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Vide maison complet",
+                            "description": "Vidage complet de maison ou appartement pour succession, déménagement ou rénovation"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Vide cave et grenier",
+                            "description": "Libération de caves, greniers et garages encombrés"
+                        }
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Débarras de bureau",
+                            "description": "Débarras professionnel de locaux commerciaux et destruction de documents confidentiels"
+                        }
+                    }
+                ]
+            }
+        }
+        </script>
+        
         <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
-        <!--
-        These two scripts have been added for the Visual Edits, please do not edit or remove them
-        -->
         <script>
-            // Only load visual edit scripts when inside an iframe
             if (window.self !== window.top) {
-                // Load debug monitor script
                 var debugMonitorScript = document.createElement('script');
                 debugMonitorScript.src = 'https://assets.emergent.sh/scripts/debug-monitor.js';
                 document.head.appendChild(debugMonitorScript);
-
-                // Configure Tailwind
                 window.tailwind = window.tailwind || {};
-                tailwind.config = {
-                    corePlugins: { preflight: false },
-                };
-
-                // Load Tailwind CDN
+                tailwind.config = { corePlugins: { preflight: false } };
                 var tailwindScript = document.createElement('script');
                 tailwindScript.src = 'https://cdn.tailwindcss.com';
                 document.head.appendChild(tailwindScript);
@@ -47,61 +154,15 @@
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
-        <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
         <a
             id="emergent-badge"
             target="_blank"
             href="https://app.emergent.sh/?utm_source=emergent-badge"
-            style="
-                display: flex !important;
-                align-items: center !important;
-                position: fixed !important;
-                bottom: 20px;
-                right: 20px;
-                text-decoration: none;
-                padding: 6px 10px;
-                font-family: -apple-system, BlinkMacSystemFont,
-                    &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell,
-                    &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;,
-                    sans-serif !important;
-                font-size: 12px !important;
-                z-index: 9999 !important;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-                border-radius: 8px !important;
-                background-color: #ffffff !important;
-                border: 1px solid rgba(255, 255, 255, 0.25) !important;
-            "
+            style="display: flex !important; align-items: center !important; position: fixed !important; bottom: 20px; right: 20px; text-decoration: none; padding: 6px 10px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important; font-size: 12px !important; z-index: 9999 !important; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important; border-radius: 8px !important; background-color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.25) !important;"
         >
-            <div
-                style="display: flex; flex-direction: row; align-items: center"
-            >
-                <img
-                    style="width: 20px; height: 20px; margin-right: 8px"
-                    src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4"
-                />
-                <p
-                    style="
-                        color: #000000;
-                        font-family: -apple-system, BlinkMacSystemFont,
-                            &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu,
-                            Cantarell, &quot;Open Sans&quot;,
-                            &quot;Helvetica Neue&quot;, sans-serif !important;
-                        font-size: 12px !important;
-                        align-items: center;
-                        margin-bottom: 0;
-                    "
-                >
-                    Made with Emergent
-                </p>
+            <div style="display: flex; flex-direction: row; align-items: center">
+                <img style="width: 20px; height: 20px; margin-right: 8px" src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
+                <p style="color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important; font-size: 12px !important; align-items: center; margin-bottom: 0;">Made with Emergent</p>
             </div>
         </a>
         <script>
@@ -115,48 +176,26 @@
                             var o = e.split(".");
                             2 == o.length && ((t = t[o[0]]), (e = o[1])),
                                 (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
+                                    t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
                                 });
                         }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
+                        ((p = t.createElement("script")).type = "text/javascript"),
                             (p.crossOrigin = "anonymous"),
                             (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
+                            (p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js"),
+                            (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r);
                         var u = e;
                         for (
                             void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
                                 u.people = u.people || [],
                                 u.toString = function (t) {
                                     var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
+                                    return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e;
                                 },
                                 u.people.toString = function () {
                                     return u.toString(1) + ".people (stub)";
                                 },
-                                o =
-                                    "init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
-                                    ),
+                                o = "init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(" "),
                                 n = 0;
                             n < o.length;
                             n++
@@ -168,7 +207,7 @@
             })(document, window.posthog || []);
             posthog.init("phc_yJW1VjHGGwmCbbrtczfqqNxgBDbhlhOWcdzcIJEOTFE", {
                 api_host: "https://us.i.posthog.com",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
+                person_profiles: "identified_only",
             });
         </script>
     </body>
