@@ -83,8 +83,8 @@ const Home = () => {
     },
     {
       id: "4",
-      title: "Débarras de bureau",
-      description: "Fermeture, déménagement ou réorganisation de bureaux ? Nous nous occupons du débarras professionnel de vos locaux commerciaux et administratifs.",
+      title: "Destruction documents confidentiels",
+      description: "Protection de vos données sensibles garantie. Nous assurons la destruction sécurisée de tous vos documents confidentiels, archives et supports informatiques avec certificat de destruction.",
       image: "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/r868vf0l_IMG-20260104-WA0015.jpg",
       order: 4
     }
