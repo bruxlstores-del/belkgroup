@@ -58,27 +58,72 @@ const Home = () => {
     };
   }, []);
 
-  const loadData = async () => {
-    try {
-      const [servicesRes, galleryRes] = await Promise.all([
-        axios.get(`${API}/services`),
-        axios.get(`${API}/gallery`)
-      ]);
-
-      // Set services from database only
-      setServices(servicesRes.data || []);
-
-      // Set gallery items from database only
-      setGalleryItems(galleryRes.data || []);
-
-      setLoading(false);
-    } catch (error) {
-      console.error('Error loading data:', error);
-      // On error, show empty state - no mock data
-      setServices([]);
-      setGalleryItems([]);
-      setLoading(false);
+  // Hardcoded services data
+  const hardcodedServices = [
+    {
+      id: "1",
+      title: "Débarras d'encombrants",
+      description: "Nous enlevons rapidement tous vos objets encombrants : meubles, électroménagers, matelas, cartons. Service complet avec tri et évacuation professionnelle.",
+      image: "https://images.pexels.com/photos/4246196/pexels-photo-4246196.jpeg?auto=compress&cs=tinysrgb&w=800",
+      order: 1
+    },
+    {
+      id: "2",
+      title: "Vide maison complet",
+      description: "Succession, déménagement ou rénovation ? Nous vidons entièrement votre maison ou appartement avec soin et efficacité. Prise en charge totale de A à Z.",
+      image: "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ysxmsgrl_blogue_droit-locatif_35.jpg",
+      order: 2
+    },
+    {
+      id: "3",
+      title: "Vide cave et grenier",
+      description: "Libérez vos caves, greniers et garages encombrés. Notre équipe accède aux espaces difficiles et évacue tous vos encombrants en toute sécurité.",
+      image: "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/a1iw9kem_IMG-20260104-WA0018.jpg",
+      order: 3
+    },
+    {
+      id: "4",
+      title: "Débarras de bureau",
+      description: "Fermeture, déménagement ou réorganisation de bureaux ? Nous nous occupons du débarras professionnel de vos locaux commerciaux et administratifs.",
+      image: "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/r868vf0l_IMG-20260104-WA0015.jpg",
+      order: 4
     }
+  ];
+
+  // Hardcoded gallery data
+  const hardcodedGallery = [
+    {
+      id: "1",
+      title: "Débarras hangar complet",
+      image: "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/9634pq21_f6qezot8_AA3.jpg"
+    },
+    {
+      id: "2",
+      title: "Débarras garage",
+      image: "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/y423g3r4_w82wr8bb_13.jpg"
+    },
+    {
+      id: "3",
+      title: "Débarras atelier",
+      image: "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/ki46kgfw_debarras-garage-pessac.webp"
+    },
+    {
+      id: "4",
+      title: "Vide appartement",
+      image: "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/amfvggpz_debarras-pessac.webp"
+    },
+    {
+      id: "5",
+      title: "Vide maison",
+      image: "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/2bahhtus_avant-apres-1024x801.jpg"
+    }
+  ];
+
+  const loadData = async () => {
+    // Use hardcoded data directly
+    setServices(hardcodedServices);
+    setGalleryItems(hardcodedGallery);
+    setLoading(false);
   };
 
   const scrollToTop = () => {
