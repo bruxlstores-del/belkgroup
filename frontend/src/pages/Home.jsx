@@ -64,7 +64,7 @@ const Home = () => {
       id: "1",
       title: "Débarras d'encombrants",
       description: "Nous enlevons rapidement tous vos objets encombrants : meubles, électroménagers, matelas, cartons. Service complet avec tri et évacuation professionnelle.",
-      image: "https://images.pexels.com/photos/4246196/pexels-photo-4246196.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "https://customer-assets.emergentagent.com/job_debarras-maison-1/artifacts/y1peqbg9_WhatsApp%20Image%202025-12-29%20at%2023.43.52%20%281%29.jpeg",
       order: 1
     },
     {
